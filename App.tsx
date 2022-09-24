@@ -3,6 +3,17 @@ import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
 
+import lottie from 'lottie-web';
+
+//import { defineLordIconElement, LordIconElement } from 'lord-icon-element';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  solid,
+  regular,
+  brands,
+  icon,
+} from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
+
 function MytopBar() {
   return (
     <div className="topbar flex">
@@ -29,6 +40,7 @@ export default function App() {
     { name: 'Alice', age: 29, country: 'Austria' },
     { name: 'Maithong', age: 11, country: 'Thailand' },
   ];
+
   return (
     <div className="header99">
       <div className="topbar flex">
@@ -52,6 +64,7 @@ export default function App() {
       <MytopBar />
       <Demo />
       <MyFlatList todos={obj} />
+      <i className="fa-solid fa-user"></i>
     </div>
   );
 }
