@@ -118,8 +118,8 @@ export default function App() {
       {/* <Welcome name="Edite" /> */}
       <MytopBar />
       {/* <Demo /> */}
-      <MyFlatList todos={obj} />
-      <MyFlatListImage todos={objImage} />
+      <MyFlatList todos={obj}  />
+      <MyFlatListImage todos={objImage} mycaption='สินค้าลดราคา'/>
     </div>
   );
 }

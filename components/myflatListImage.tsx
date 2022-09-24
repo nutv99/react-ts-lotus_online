@@ -15,10 +15,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //   return <h1>Hello, {name}</h1>;
 // }
 
-function MyFlatList({ todos }) {
+function MyFlatList({ todos, mycaption }) {
   const todoItems = todos.map((todo) => (
     <div key={todo.name}>
-      <img src={todo.ImgName} className='imgThumb' />
+      <img src={todo.ImgName} className="imgThumb" />
       {todo.name}
       {todo.age}
     </div>
@@ -30,10 +30,16 @@ function MyFlatList({ todos }) {
     // ))}
 
     //
-    <div className="flatList">
-      {todoItems}
+    <div>
+      <div className="captionBar">
+        <div>{mycaption}</div>
+        <div className="right">ดูทั้งหมด</div>
+      </div>
+      <div className="flatList">
+        {todoItems}
 
-      {/* <FontAwesomeIcon icon={faUser} /> */}
+        {/* <FontAwesomeIcon icon={faUser} /> */}
+      </div>
     </div>
   );
 }
