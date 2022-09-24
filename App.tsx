@@ -18,7 +18,8 @@ function Welcome(props) {
 }
 
 export default function App() {
-  let menu = ['aaa', 'bbb'];
+  let menu99 = ['aaa', 'bbb']; 
+  const obj = {name: 'Alice', age: 29, country: 'Austria'};
   return (
     <div className="header99">
       <div className="topbar flex">
@@ -41,7 +42,7 @@ export default function App() {
       {/* <Welcome name="Edite" /> */}
       <MytopBar />
       <Demo />
-      <MyFlatList name="menu" />
+      <MyFlatList data={obj} />
     </div>
   );
 }

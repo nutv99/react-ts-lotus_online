@@ -1,8 +1,8 @@
-import * as React  from 'react'  
-import '../style.css'; 
+import * as React from 'react';
+import '../style.css';
 
-function MyFlatList(props) {
-  return <h1>Hello, {props[0]}</h1>;
+function MyFlatList({data: {name, age, country}}) {
+  return <h1>Hello, {name}</h1>;
 }
 
-export default MyFlatList ;
+export default MyFlatList;
