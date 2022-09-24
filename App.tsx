@@ -118,6 +118,8 @@ export default function App() {
     testApi();
   }, []);
 
+  
+
   if (loading) {
     return <h1>Loading...</h1>;
   }
