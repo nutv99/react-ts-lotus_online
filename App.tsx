@@ -1,19 +1,24 @@
 import * as React from 'react';
 import './style.css';
+import Demo from './Demo';
+import MyFlatList from './components/myflatList';
 
-function topBar() {
-
+function MytopBar() {
   return (
     <div className="topbar flex">
-    <div>ดาวน์โหลด</div>
-    <div>ข้อมูลข่าวสาร</div>
-    <div className="mlauto mr10">EN/TH</div>
-  </div>
-  )
+      <div>ดาวน์โหลด</div>
+      <div>ข้อมูลข่าวสาร</div>
+      <div className="mlauto mr10">EN/TH</div>
+    </div>
+  );
+}
 
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
 }
 
 export default function App() {
+  let menu = ['aaa', 'bbb'];
   return (
     <div className="header99">
       <div className="topbar flex">
@@ -33,6 +38,10 @@ export default function App() {
           <div className="mlauto ml10 mr10">EN/TH</div>
         </div>
       </div>
+      {/* <Welcome name="Edite" /> */}
+      <MytopBar />
+      <Demo />
+      <MyFlatList name="menu" />
     </div>
   );
 }
