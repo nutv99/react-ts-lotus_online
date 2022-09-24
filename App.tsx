@@ -1,6 +1,18 @@
 import * as React from 'react';
 import './style.css';
 
+function topBar() {
+
+  return (
+    <div className="topbar flex">
+    <div>ดาวน์โหลด</div>
+    <div>ข้อมูลข่าวสาร</div>
+    <div className="mlauto mr10">EN/TH</div>
+  </div>
+  )
+
+}
+
 export default function App() {
   return (
     <div className="header99">
