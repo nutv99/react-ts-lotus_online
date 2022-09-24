@@ -2,6 +2,7 @@ import * as React from 'react';
 import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
+import MyFlatListImage from './components/myflatListImage';
 
 import lottie from 'lottie-web';
 
@@ -13,6 +14,9 @@ import {
   brands,
   icon,
 } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
+
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function MytopBar() {
   return (
@@ -41,6 +45,57 @@ export default function App() {
     { name: 'Maithong', age: 11, country: 'Thailand' },
   ];
 
+  const objImage = [
+    {
+      name: 'Alice',
+      age: 29,
+      ImgName:
+        'https://img.freepik.com/free-psd/cosmetic-product-packaging-mockup_1150-40284.jpg?w=2000',
+    },
+    {
+      name: 'Maithong',
+      age: 11,
+      ImgName:
+        'https://img.freepik.com/free-psd/cosmetic-product-packaging-mockup_1150-40282.jpg?w=2000',
+    },
+    {
+      name: 'Alice',
+      age: 29,
+      ImgName:
+        'https://cdn.shopify.com/s/files/1/2303/2711/files/2_e822dae0-14df-4cb8-b145-ea4dc0966b34.jpg?v=1617059123',
+    },
+    {
+      name: 'Maithong',
+      age: 11,
+      ImgName:
+        'https://assets-global.website-files.com/600fe6e1ff56087409a9f096/605b5a558848493df14d2d13_ecommerce-product-photography.jpg',
+    },
+    {
+      name: 'Alice',
+      age: 29,
+      ImgName:
+        'https://img.freepik.com/free-psd/cosmetic-product-packaging-mockup_1150-40281.jpg?w=2000',
+    },
+    {
+      name: 'Maithong',
+      age: 11,
+      ImgName:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0E4gSaEriDKmPePOOQXQf0EaL8o9Dhtd-Bg&usqp=CAU',
+    },
+    {
+      name: 'Alice',
+      age: 29,
+      ImgName:
+        'https://m.media-amazon.com/images/G/31/amazonservices/Blog/SOA_Ref_Blog_5_Focus_on_your_interests_while_deciding_on_a_product._SL1280_FMjpg_.jpg',
+    },
+    {
+      name: 'Maithong',
+      age: 11,
+      ImgName:
+        'https://www.sellerapp.com/blog/wp-content/uploads/2017/01/lisiting.png',
+    },
+  ];
+
   return (
     <div className="header99">
       <div className="topbar flex">
@@ -62,9 +117,9 @@ export default function App() {
       </div>
       {/* <Welcome name="Edite" /> */}
       <MytopBar />
-      <Demo />
+      {/* <Demo /> */}
       <MyFlatList todos={obj} />
-      <i className="fa-solid fa-user"></i>
+      <MyFlatListImage todos={objImage} />
     </div>
   );
 }

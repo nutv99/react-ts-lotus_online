@@ -18,7 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function MyFlatList({ todos }) {
   const todoItems = todos.map((todo) => (
     <div key={todo.name}>
-      <FontAwesomeIcon icon={faTruckFast} />
+      <img src={todo.ImgName} className='imgThumb' />
       {todo.name}
       {todo.age}
     </div>
