@@ -22,6 +22,12 @@ export default function App() {
   const obj = [
     { name: 'Alice', age: 29, country: 'Austria' },
     { name: 'Maithong', age: 11, country: 'Thailand' },
+    { name: 'Alice', age: 29, country: 'Austria' },
+    { name: 'Maithong', age: 11, country: 'Thailand' },
+    { name: 'Alice', age: 29, country: 'Austria' },
+    { name: 'Maithong', age: 11, country: 'Thailand' },
+    { name: 'Alice', age: 29, country: 'Austria' },
+    { name: 'Maithong', age: 11, country: 'Thailand' },
   ];
   return (
     <div className="header99">
