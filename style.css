@@ -9,7 +9,9 @@ p {
   background-color: rgb(0, 188, 180);
   height: 40vh;
 }
-.logo { width: 50px;}
+.logo {
+  width: 50px;
+}
 .flex {
   display: flex;
   flex-direction: row;
@@ -27,4 +29,16 @@ p {
 }
 .mr10 {
   margin-right: 10px;
+}
+
+.flatList {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  border: 1px solid pink;
+  padding: 10px;
+}
+.flatList div {
+  margin: 10px;
 }
