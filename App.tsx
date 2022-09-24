@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
 import MyFlatListImage from './components/myflatListImage';
+import ApiService from './Apiservice.js';
 
 import lottie from 'lottie-web';
 
@@ -95,6 +97,30 @@ export default function App() {
         'https://www.sellerapp.com/blog/wp-content/uploads/2017/01/lisiting.png',
     },
   ];
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const testApi = async () => {
+    // Test Get DATA
+    try {
+      setLoading(true);
+      const usersData = await ApiService.httpGet('/users');
+      setUsers(usersData);
+      setLoading(false);
+    } catch (err) {
+      console.error(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    testApi();
+  }, []);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>
@@ -124,6 +150,15 @@ export default function App() {
       <div>
         <MyFlatList todos={obj} />
         <MyFlatListImage todos={objImage} mycaption="สินค้าลดราคา" />
+      </div>
+      <div>
+        <div>
+          <ul>
+            {users.map((user) => {
+              return <li key={user.id}>Name: {user.name}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
