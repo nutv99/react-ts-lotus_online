@@ -40,12 +40,21 @@ p {
   border: 1px solid pink;
   padding: 10px;
 }
+.flatList::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.flatList {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .flatList div {
   margin: 10px;
   text-align: center;
 }
 
 .imgThumb {
-  width: 100px;
+  height: 50px;
   border-radius: 6px;
 }
