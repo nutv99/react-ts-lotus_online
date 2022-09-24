@@ -9,7 +9,22 @@ p {
   background-color: rgb(0, 188, 180);
   height: 40vh;
 }
+.logo { width: 50px;}
 .flex {
   display: flex;
   flex-direction: row;
+}
+.topbar {
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+}
+.ml10 {
+  margin-left: 10px;
+}
+.mlauto {
+  margin-left: auto;
+}
+.mr10 {
+  margin-right: 10px;
 }
