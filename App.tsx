@@ -17,7 +17,9 @@ import {
   icon,
 } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
 
-import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+<FontAwesomeIcon icon="fa-solid fa-car-circle-bolt" />
+
+import { faHome, faUser ,faCar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function MytopBar() {

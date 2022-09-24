@@ -8,7 +8,12 @@ import {
   icon,
 } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
 
-import { faHome, faUser, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faUser,
+  faTruckFast,
+  faCar,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // function MyFlatList({ data: { name, age, country } }) {
@@ -18,7 +23,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function MyFlatList({ todos }) {
   const todoItems = todos.map((todo) => (
     <div key={todo.name}>
-      <FontAwesomeIcon icon={faTruckFast} />
+      <FontAwesomeIcon icon={faCar} />
       {todo.name}
       {todo.age}
     </div>
