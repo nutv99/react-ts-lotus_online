@@ -4,7 +4,7 @@ import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
 import MyFlatListImage from './components/myflatListImage';
-import ApiService from './Apiservice.js';
+import ApiService from './Apiservice.tsx';
 
 import lottie from 'lottie-web';
 
