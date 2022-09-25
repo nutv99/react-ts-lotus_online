@@ -1,3 +1,4 @@
+import axios from 'axios';
 const config = {
   api: 'https://jsonplaceholder.typicode.com',
   options: {
@@ -10,6 +11,35 @@ const configMall = {
   options: {
     headers: { 'content-type': 'application/json' },
   },
+};
+
+const axiosGet = (endpoint) => {
+  axios.get(`${config.api}${endpoint}`).then((res) => {
+    // const persons = res.data;
+    // this.setState({ persons });
+    console.log(res);
+  });
+};
+
+const axiosPost = (endpoint, payload) => {
+  axios.post(`${config.api}${endpoint}`, { payload }).then((res) => {
+    console.log(res);
+    console.log(res.data);
+  });
+};
+
+const axiosPatch = (endpoint, payload) => {
+  axios.patch(`${config.api}${endpoint}`).then((res) => {
+    console.log(res);
+    console.log(res.data);
+  });
+};
+
+const axiosDelete = (endpoint, payload) => {
+  axios.delete(`${config.api}${endpoint}`).then((res) => {
+    console.log(res);
+    console.log(res.data);
+  });
 };
 
 const httpGet = (endpoint) => {
