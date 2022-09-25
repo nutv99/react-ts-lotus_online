@@ -5,6 +5,13 @@ const config = {
   },
 };
 
+const configMall = {
+  api: 'https://lovetoshopmall.com',
+  options: {
+    headers: { 'content-type': 'application/json' },
+  },
+};
+
 const httpGet = (endpoint) => {
   return fetch(`${config.api}${endpoint}`, {
     ...config.options,
