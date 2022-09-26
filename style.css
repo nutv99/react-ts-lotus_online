@@ -178,3 +178,8 @@ p {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+
+.extraClass {
+  border: 10px solid red;
+  height:30px; width:100% ;
+}

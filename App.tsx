@@ -12,7 +12,7 @@ import Box2Col from './components/box2Col';
 import ApiService from './Apiservice.tsx';
 
 import ImageGallery from 'react-image-gallery';
-import "react-image-gallery/styles/css/image-gallery.css";
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { ItemData } from './dataservice';
 import * as CurrencyFormat from 'react-currency-format';
@@ -55,7 +55,7 @@ export default function App() {
     { name: 'Maithong', age: 11, country: 'Thailand' },
     { name: 'Alice', age: 29, country: 'Austria' },
     { name: 'Maithong', age: 11, country: 'Thailand' },
-  ]; 
+  ];
 
   const images = [
     {
@@ -129,6 +129,8 @@ export default function App() {
   //const bb = ItemData;
   const [items, setItems] = useState(ItemData);
 
+  const dataClass: string = 'extraClass';
+
   const myimage =
     'https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664157944~exp=1664158544~hmac=0ae0995dcb2bfc7d7f9a1c3388a5793f3e588fc73abc486c1bcfc505adb9c68b';
 
@@ -198,12 +200,11 @@ export default function App() {
           </ul>
         </div>
       </div>
-      <Box1Col myimage={myimage} />
+      {/* <Box1Col myimage={myimage} />
       <Box1Col myimage={myimage2} />
-      <Box2Col myimage1={myimage} myimage2={myimage2} />
-      <BoxProduct todos={items} mycaption="สินค้าลดราคา" />
+      <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
+      {/* <BoxProduct todos={items} mycaption="สินค้าลดราคา" /> */}
       <ImageGallery items={images} />
-      
     </div>
   );
 }
