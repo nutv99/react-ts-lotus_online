@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const config = {
   api: 'https://jsonplaceholder.typicode.com',
   options: {
@@ -43,7 +44,7 @@ const axiosDelete = (endpoint, payload) => {
 };
 
 const httpGet = (endpoint) => {
-  return fetch(`${config.api}${endpoint}`, {
+  return fetch(`${configMall.api}/${endpoint}`, {
     ...config.options,
   })
     .then((response) => handleResponse(response))

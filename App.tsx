@@ -11,6 +11,8 @@ import Box1Col from './components/box1banner';
 import Box2Col from './components/box2Col';
 import ApiService from './Apiservice.tsx';
 
+import { ItemData } from './dataservice';
+
 import lottie from 'lottie-web';
 
 //import { defineLordIconElement, LordIconElement } from 'lord-icon-element';
@@ -52,6 +54,7 @@ export default function App() {
     { name: 'Maithong', age: 11, country: 'Thailand' },
   ];
 
+  
   const objImage = [
     {
       name: 'Alice',
@@ -102,9 +105,13 @@ export default function App() {
         'https://www.sellerapp.com/blog/wp-content/uploads/2017/01/lisiting.png',
     },
   ];
-  
+
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  
+  //const bb = ItemData;
+  const [items, setItems] = useState(ItemData); 
+
   const myimage =
     'https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664157944~exp=1664158544~hmac=0ae0995dcb2bfc7d7f9a1c3388a5793f3e588fc73abc486c1bcfc505adb9c68b';
 
@@ -115,7 +122,10 @@ export default function App() {
     // Test Get DATA
     try {
       setLoading(true);
-      const usersData = await ApiService.httpGet('/users');
+      const usersData = await ApiService.httpGet(
+        'dataservice/categoryTest.php'
+      );
+      console.log('userData', usersData);
       setUsers(usersData);
       setLoading(false);
     } catch (err) {
@@ -167,6 +177,12 @@ export default function App() {
           <ul>
             {users.map((user) => {
               return <li key={user.id}>Name: {user.name}</li>;
+            })}
+          </ul>
+
+          <ul>
+            {items.map((item) => {
+              return <li key={item.ItemCode}>Name: {item.ItemName}</li>;
             })}
           </ul>
         </div>
