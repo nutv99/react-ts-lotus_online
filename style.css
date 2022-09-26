@@ -114,14 +114,21 @@ p {
   padding: 5px;
 }
 .box2Col div {
+  display: flex;
   border: 1px solid lavender;
   justify-content: center;
+  padding: 5px;
 }
 .box2Col div img {
   justify-content: center;
   align-content: center;
 }
-
+.box2Col .caption {
+  color: #4e4e4e;
+}
+.center {
+  justify-content: center;
+}
 .flexWrap {
   flex-wrap: wrap;
 }

@@ -18,10 +18,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function BoxProduct({ todos, mycaption }) {
   const todoItems = todos.map((todo) => (
     <div key={todo.name} className="box2Col">
-      <div>
+      <div className="center">
         <img src={todo.ImgName} className="imgThumb" />
       </div>
-      {todo.name}
+      <div className="caption">{todo.name}</div>
       {todo.age}
     </div>
   ));
