@@ -50,7 +50,6 @@ p {
 
 .flatList90 {
   position: relative;
-
   display: flex;
   flex-direction: row;
   width: calc(100% - 20px);
