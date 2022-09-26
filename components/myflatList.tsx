@@ -17,8 +17,9 @@ function MyFlatList({ todos }) {
       <div className="itemCircle">
         <FontAwesomeIcon icon={sss.faCake} />
       </div>
+      <div className='boxCaption'>
       {todo.name}
-      {todo.age}
+      </div>
     </div>
   ));
 
