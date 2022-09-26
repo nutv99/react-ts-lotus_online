@@ -93,3 +93,8 @@ p {
 .itemCircle:hover {
   color: cornflowerblue;
 }
+.myBanner1Image {
+  height: 100px;
+  width: 100%;
+  margin: 5px;
+}

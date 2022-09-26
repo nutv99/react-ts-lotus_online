@@ -4,6 +4,7 @@ import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
 import MyFlatListImage from './components/myflatListImage';
+import Box1Banner from './components/box1banner';
 import ApiService from './Apiservice.tsx';
 
 import lottie from 'lottie-web';
@@ -99,6 +100,11 @@ export default function App() {
   ];
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const myimage =
+    'https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664157944~exp=1664158544~hmac=0ae0995dcb2bfc7d7f9a1c3388a5793f3e588fc73abc486c1bcfc505adb9c68b';
+
+  const myimage2 =
+    'https://img.freepik.com/free-vector/shaving-foam-men-cosmetic-bottles-banner-with-mint_107791-2506.jpg?w=826&t=st=1664158541~exp=1664159141~hmac=e9c6f42f710610677f40c1a7b47c0331954ccad9a6b628d433ec9dd194a72170';
 
   const testApi = async () => {
     // Test Get DATA
@@ -160,6 +166,8 @@ export default function App() {
           </ul>
         </div>
       </div>
+      <Box1Banner myimage={myimage} />
+      <Box1Banner myimage={myimage2} />
     </div>
   );
 }
