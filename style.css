@@ -110,10 +110,21 @@ p {
 
 .box2Col {
   width: 50%;
-  /* border: 1px solid lightgrey; */
+
   padding: 5px;
-  border: solid #5b6dcd 1px;
 }
+.box2Col div {
+  border: 1px solid lavender;
+  justify-content: center;
+}
+.box2Col div img {
+  justify-content: center;
+  align-content: center;
+}
+
 .flexWrap {
   flex-wrap: wrap;
+}
+.boxShadow {
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 1px 2px rgb(0 0 0 / 23%);
 }
