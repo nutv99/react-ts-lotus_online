@@ -11,8 +11,11 @@ import Box1Col from './components/box1banner';
 import Box2Col from './components/box2Col';
 import ApiService from './Apiservice.tsx';
 
-import { ItemData } from './dataservice';
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 
+import { ItemData } from './dataservice';
+import * as CurrencyFormat from 'react-currency-format';
 import lottie from 'lottie-web';
 
 //import { defineLordIconElement, LordIconElement } from 'lord-icon-element';
@@ -52,6 +55,21 @@ export default function App() {
     { name: 'Maithong', age: 11, country: 'Thailand' },
     { name: 'Alice', age: 29, country: 'Austria' },
     { name: 'Maithong', age: 11, country: 'Thailand' },
+  ]; 
+
+  const images = [
+    {
+      original: 'https://picsum.photos/id/1018/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1019/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1019/250/150/',
+    },
   ];
 
   const objImage = [
@@ -184,6 +202,8 @@ export default function App() {
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} />
       <BoxProduct todos={items} mycaption="สินค้าลดราคา" />
+      <ImageGallery items={images} />
+      
     </div>
   );
 }
