@@ -4,6 +4,9 @@ import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
 import MyFlatListImage from './components/myflatListImage';
+
+import BoxProduct from './components/boxProduct';
+
 import Box1Col from './components/box1banner';
 import Box2Col from './components/box2Col';
 import ApiService from './Apiservice.tsx';
@@ -170,6 +173,7 @@ export default function App() {
       <Box1Col myimage={myimage} />
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} />
+      <BoxProduct todos={objImage} mycaption="สินค้าลดราคา" />
     </div>
   );
 }

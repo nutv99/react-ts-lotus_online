@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function BoxProduct({ todos, mycaption }) {
   const todoItems = todos.map((todo) => (
-    <div key={todo.name}>
+    <div key={todo.name} className="box2Col">
       <img src={todo.ImgName} className="imgThumb" />
       {todo.name}
       {todo.age}
@@ -35,7 +35,7 @@ function BoxProduct({ todos, mycaption }) {
         <div>{mycaption}</div>
         <div className="right">ดูทั้งหมด</div>
       </div>
-      <div className="flatList">
+      <div className="flex flexWrap">
         {todoItems}
         {/* <FontAwesomeIcon icon={faUser} /> */}
       </div>
