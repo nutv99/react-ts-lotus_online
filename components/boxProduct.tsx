@@ -37,7 +37,6 @@ function BoxProduct({ todos, mycaption }) {
       </div>
       <div className="flatList">
         {todoItems}
-
         {/* <FontAwesomeIcon icon={faUser} /> */}
       </div>
     </div>
