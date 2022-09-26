@@ -13,9 +13,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function MyFlatList({ todos }) {
   const todoItems = todos.map((todo) => (
-    <div key={todo.name} >
-      <div className='itemCircle'>
-      <FontAwesomeIcon icon={sss.faCake} />
+    <div key={todo.name}>
+      <div className="itemCircle">
+        <FontAwesomeIcon icon={sss.faCake} />
       </div>
       {todo.name}
       {todo.age}
@@ -28,7 +28,7 @@ function MyFlatList({ todos }) {
     // ))}
 
     //
-    <div className="flatList">
+    <div className="flatList90 boxShadow">
       {todoItems}
 
       {/* <FontAwesomeIcon icon={faUser} /> */}

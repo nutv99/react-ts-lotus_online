@@ -40,9 +40,24 @@ p {
   flex-direction: row;
   width: 100%;
   overflow-x: scroll;
-  border: 1px solid pink;
+  border: 1px solid whitesmoke;
   padding: 10px;
+  margin: 10px;
+  margin-left: auto;
 }
+
+.flatList90 {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 20px);
+  overflow-x: scroll;
+  border: 1px solid whitesmoke;
+  margin: 10px;
+  padding: 10px;
+  padding-right: 20px;
+  border-radius: 6px;
+}
+
 .flatList::-webkit-scrollbar {
   display: none;
 }
@@ -76,19 +91,19 @@ p {
 .itemCircle {
   padding: 5px;
 
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: lightgrey;
-
+  color:cornflowerblue;
+  margin: 10px;
   border: none;
-
   box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 1px 2px rgb(0 0 0 / 23%);
   font-weight: 400;
   min-width: 32px;
+  font-size: 25px;
 }
 
 .itemCircle:hover {
@@ -122,6 +137,8 @@ p {
 .box2Col div img {
   justify-content: center;
   align-content: center;
+  height: 150px;
+  max-width: 45%;
 }
 .box2Col .caption {
   color: #4e4e4e;
