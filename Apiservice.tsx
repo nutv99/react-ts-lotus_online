@@ -110,4 +110,4 @@ const handleResponse = (response) => {
   }
 };
 
-export default { httpGet, httpPost, httpPut, httpDelete,axiosGet };
+export default { httpGet, httpPost, httpPut, httpDelete,axiosGet,axiosPost,axiosPatch,axiosDelete };
