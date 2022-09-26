@@ -364,3 +364,13 @@ body,
     @include dark-theme;
   }
 }
+
+
+<div class="product-grid-item" style="margin: 0px 0px 10px;"><div class="sc-kiIyQV gKflWz"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" id="product-card-0" href="/th/product/nestl-pure-life-drinking-water-600ml-x-12pcs-150144333" style="text-align: center;"><img src="https://publish-p33706-e156581.adobeaemcloud.com/content/dam/aem-cplotusonlinecommerce-project/th/images/magento/catalog/product/new/91129/150144333.jpg/jcr:content/renditions/plp-large.jpeg" class="sc-cLpAjG bgvUBy" style="filter: none; cursor: pointer; height: 171px; width: 100%;"></a><div class="sc-cvZCdy EIYNc"><img id="product-card-0-badge-image-0" src="https://publish-p33706-e156581.adobeaemcloud.com/content/dam/aem-cplotusonlinecommerce-project/global/discount-bage/discount%2020@3x.png" alt="เพียวไลฟ์น้ำดื่ม600มล. แพ็ค 12-promotion-badgeImage-0" class="jss3425" style="margin-top: 0px;"></div><div class="sc-iIUQWv khvELw"><a id="product-title" class="sc-kmQMED gBnZub two-line" href="/th/product/nestl-pure-life-drinking-water-600ml-x-12pcs-150144333">เพียวไลฟ์น้ำดื่ม600มล. แพ็ค 12</a><div class="sc-gslxeA eaoeJV"></div><div title="" class=""></div><div><p class="sc-djWRfJ fUocDq" style="line-height: 2.1;">฿<span class="sc-gIBqdA ekOicl">52.00</span></p><div class="MuiBox-root jss3431 jss3426"><p class="sc-fyrocj qmIAv">฿65.00</p><div class="MuiBox-root jss3628 jss3432 jss3627 jss3433" id="product-card-cart-button-0"><img src="https://publish-p33706-e156581.adobeaemcloud.com/content/dam/aem-cplotusonlinecommerce-project/th/images/medias/icon/IconCart.svg" alt="cart icon" width="15px" height="15px"></div></div></div></div></div></div>
+
+.kFJWDl .product-grid-item {
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+}
