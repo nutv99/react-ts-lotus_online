@@ -164,6 +164,8 @@ p {
   text-align: center;
   justify-content: center;
   margin-top: 10px;
+  height: 80px;
+  font-size: 14px;
 }
 .boxGrass {
   background-color: rgba(255, 255, 255, 0.15);

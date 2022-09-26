@@ -1,4 +1,6 @@
 import * as React from 'react';
+//import * as CurrencyFormat from 'react-currency-format';
+
 import '../style.css';
 
 import {
@@ -19,10 +21,11 @@ function BoxProduct({ todos, mycaption }) {
   const todoItems = todos.map((todo) => (
     <div key={todo.name} className="box2Col">
       <div className="center">
-        <img src={todo.ImgName} className="imgThumb" />
+        <img src={todo.mainImageURL} className="imgThumb" />
       </div>
-      <div className="caption">{todo.name}</div>
-      {todo.age}
+      <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
+      <div>{todo.SellPrice} </div>
+      
     </div>
   ));
 

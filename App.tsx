@@ -54,7 +54,6 @@ export default function App() {
     { name: 'Maithong', age: 11, country: 'Thailand' },
   ];
 
-  
   const objImage = [
     {
       name: 'Alice',
@@ -108,9 +107,9 @@ export default function App() {
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+
   //const bb = ItemData;
-  const [items, setItems] = useState(ItemData); 
+  const [items, setItems] = useState(ItemData);
 
   const myimage =
     'https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664157944~exp=1664158544~hmac=0ae0995dcb2bfc7d7f9a1c3388a5793f3e588fc73abc486c1bcfc505adb9c68b';
@@ -179,18 +178,12 @@ export default function App() {
               return <li key={user.id}>Name: {user.name}</li>;
             })}
           </ul>
-
-          <ul>
-            {items.map((item) => {
-              return <li key={item.ItemCode}>Name: {item.ItemName}</li>;
-            })}
-          </ul>
         </div>
       </div>
       <Box1Col myimage={myimage} />
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} />
-      <BoxProduct todos={objImage} mycaption="สินค้าลดราคา" />
+      <BoxProduct todos={items} mycaption="สินค้าลดราคา" />
     </div>
   );
 }
