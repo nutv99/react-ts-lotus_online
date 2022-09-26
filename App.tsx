@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
+
+import axios from 'axios';
+
 import './style.css';
 import Demo from './Demo';
 import MyFlatList from './components/myflatList';
@@ -29,6 +32,7 @@ import {
 
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Apiservice from './Apiservice';
 
 function MytopBar() {
   return (
@@ -141,11 +145,21 @@ export default function App() {
     // Test Get DATA
     try {
       setLoading(true);
-      const usersData = await ApiService.httpGet(
-        'dataservice/categoryTest.php'
-      );
+      // const usersData = await ApiService.httpGet(
+      //   'dataservice/clsItemMaster.php'
+      // );
+      const usersData = await ApiService.axiosGet('dataservice/clsItemMaster.php') ;
+      // const usersData = '{}';
+      // axios
+      // .get("https://lovetoshopmall.com/dataservice/clsItemMaster.php")
+      // .then(data => console.log(data.data))
+      // .catch(error => console.log(error));
+
+      
+
+      
       console.log('userData', usersData);
-      setUsers(usersData);
+      //setUsers(usersData);
       setLoading(false);
     } catch (err) {
       console.error(err.message);

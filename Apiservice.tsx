@@ -15,11 +15,16 @@ const configMall = {
 };
 
 const axiosGet = (endpoint) => {
-  axios.get(`${config.api}${endpoint}`).then((res) => {
-    // const persons = res.data;
-    // this.setState({ persons });
-    console.log(res);
-  });
+  // axios.get(`${config.api}${endpoint}`).then((res) => {
+  //   // const persons = res.data;
+  //   // this.setState({ persons });
+  //   console.log(res);
+  // });
+  axios
+  .get(`${configMall.api}/${endpoint}`)
+  .then(data =>  {console.log(data.data) ; return data.data} )
+  .catch(error => console.log(error));
+ 
 };
 
 const axiosPost = (endpoint, payload) => {
@@ -105,4 +110,4 @@ const handleResponse = (response) => {
   }
 };
 
-export default { httpGet, httpPost, httpPut, httpDelete };
+export default { httpGet, httpPost, httpPut, httpDelete,axiosGet };
