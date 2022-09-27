@@ -220,7 +220,7 @@ export default function App() {
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
       {/* <BoxProduct todos={items} mycaption="สินค้าลดราคา" /> */}
-      <ImageGallery items={images} />
+      {/* <ImageGallery items={images} /> */}
     </div>
   );
 }
