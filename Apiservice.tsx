@@ -22,7 +22,7 @@ const axiosGet = (endpoint) => {
   // });
   axios
   .get(`${configMall.api}/${endpoint}`)
-  .then(data =>  {console.log(data.data) ; return data.data} )
+  .then(data =>  {console.log('ApiService-',data.data) ; return data.data} )
   .catch(error => console.log(error));
  
 };

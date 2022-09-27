@@ -12,7 +12,7 @@ import BoxProduct from './components/boxProduct';
 
 import Box1Col from './components/box1banner';
 import Box2Col from './components/box2Col';
-import ApiService from './Apiservice.tsx';
+import ApiService from './Apiservice';
 
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -20,9 +20,9 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import { ItemData } from './dataservice';
 import * as CurrencyFormat from 'react-currency-format';
 import lottie from 'lottie-web';
+// import  Box2  from './box2' ;
+import PersonList from './PersonalList';
 
-//import { defineLordIconElement, LordIconElement } from 'lord-icon-element';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   solid,
   regular,
@@ -148,17 +148,16 @@ export default function App() {
       // const usersData = await ApiService.httpGet(
       //   'dataservice/clsItemMaster.php'
       // );
-      const usersData = await ApiService.axiosGet('dataservice/clsItemMaster.php') ;
+      const usersData = await ApiService.axiosGet(
+        'dataservice/clsItemMaster.php'
+      );
       // const usersData = '{}';
       // axios
       // .get("https://lovetoshopmall.com/dataservice/clsItemMaster.php")
       // .then(data => console.log(data.data))
       // .catch(error => console.log(error));
 
-      
-
-      
-      console.log('userData', usersData);
+      //console.log('userData', usersData);
       //setUsers(usersData);
       setLoading(false);
     } catch (err) {
@@ -166,9 +165,7 @@ export default function App() {
     } finally {
       setLoading(false);
     }
-  }; 
-
-  
+  };
 
   useEffect(() => {
     testApi();
@@ -221,6 +218,8 @@ export default function App() {
       <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
       {/* <BoxProduct todos={items} mycaption="สินค้าลดราคา" /> */}
       {/* <ImageGallery items={images} /> */}
+      {/* <Box2 mycaption = 'Boxx2---'/> */}
+      <PersonList />
     </div>
   );
 }
