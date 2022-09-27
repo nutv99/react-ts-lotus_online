@@ -148,16 +148,18 @@ export default function App() {
       // const usersData = await ApiService.httpGet(
       //   'dataservice/clsItemMaster.php'
       // );
-      const usersData = await ApiService.axiosGet(
-        'dataservice/clsItemMaster.php'
-      );
+      // const usersData = await ApiService.axiosGet(
+      //   'dataservice/clsItemMaster.php'
+      // );
       // const usersData = '{}';
-      // axios
-      // .get("https://lovetoshopmall.com/dataservice/clsItemMaster.php")
-      // .then(data => console.log(data.data))
-      // .catch(error => console.log(error));
+      axios
+        .get('https://lovetoshopmall.com/dataservice/clsItemMaster.php')
+        .then((data) => {
+          console.log('sssss', data.data);
+        })
+        .catch((error) => console.log(error));
 
-      //console.log('userData', usersData);
+      // console.log('userData9999', data.data);
       //setUsers(usersData);
       setLoading(false);
     } catch (err) {
@@ -216,8 +218,8 @@ export default function App() {
       {/* <Box1Col myimage={myimage} />
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
-      {/* <BoxProduct todos={items} mycaption="สินค้าลดราคา" /> */}
-      <ImageGallery items={images} />
+      <BoxProduct todos={items} mycaption="สินค้าลดราคา" />
+      {/* <ImageGallery items={images} /> */}
 
       {/* <PersonList /> */}
     </div>

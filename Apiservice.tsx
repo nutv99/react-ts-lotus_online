@@ -21,11 +21,13 @@ const axiosGet = (endpoint) => {
   //   console.log(res);
   // });
   axios
-  .get(`${configMall.api}/${endpoint}`)
-  .then((response) => handleResponse(response))
-  .then(data =>  {console.log('ApiService-',data.data) ; return data.data} )
-  .catch(error => console.log(error));
- 
+    .get(`${configMall.api}/${endpoint}`)
+    .then((response) => handleResponse(response))
+    .then((data) => {
+      console.log('ApiService-', data.data);
+      return data;
+    })
+    .catch((error) => console.log(error));
 };
 
 const axiosPost = (endpoint, payload) => {
@@ -105,10 +107,19 @@ const httpDelete = (endpoint, data) => {
 const handleResponse = (response) => {
   // You can handle 400 errors as well.
   if (response.status === 200) {
-    return response.json();
+    return response;
   } else {
-    throw Error(response.json() | 'error');
+    throw Error(response | 'error');
   }
 };
 
-export default { httpGet, httpPost, httpPut, httpDelete,axiosGet,axiosPost,axiosPatch,axiosDelete };
+export default {
+  httpGet,
+  httpPost,
+  httpPut,
+  httpDelete,
+  axiosGet,
+  axiosPost,
+  axiosPatch,
+  axiosDelete,
+};
