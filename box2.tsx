@@ -1,12 +1,19 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ApiService from './Apiservice';
+import ApiService from './Apiservice'; 
 
-export default function Box2({ mycaption }) {
+interface itemModel {
+  ItemName: string ;
+  mainImageURL: string;
+
+
+}
+
+function Box2({ mycaption }) {
+
   const [itemShow, setItemShow] = useState([{}]);
-  const ItemsData = [{}] ;
-  
+  const ItemsData = [{}];
 
   const testApi = async () => {
     // Test Get DATA
@@ -21,7 +28,6 @@ export default function Box2({ mycaption }) {
     } catch (err) {
       console.error(err.message);
     } finally {
-      console.log('Item-DataFinally ', this.ItemsData);
     }
   };
 
@@ -30,10 +36,10 @@ export default function Box2({ mycaption }) {
   }, []);
 
   const todoItems = itemShow.map((todo) => (
-    <div key={todo.name}>
-      <img src={todo.ImgName} className="imgThumb" />
-      {todo.name}
-      {todo.age}
+    <div >
+      <img src={todo.mainImageURL} className="imgThumb" />
+      {todo.ItemName}
+      
     </div>
   ));
 
@@ -57,4 +63,4 @@ export default function Box2({ mycaption }) {
   );
 }
 
-// export default Box2;
+export default Box2;

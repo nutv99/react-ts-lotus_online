@@ -22,6 +22,7 @@ const axiosGet = (endpoint) => {
   // });
   axios
   .get(`${configMall.api}/${endpoint}`)
+  .then((response) => handleResponse(response))
   .then(data =>  {console.log('ApiService-',data.data) ; return data.data} )
   .catch(error => console.log(error));
  

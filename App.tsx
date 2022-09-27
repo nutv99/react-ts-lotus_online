@@ -21,7 +21,7 @@ import { ItemData } from './dataservice';
 import * as CurrencyFormat from 'react-currency-format';
 import lottie from 'lottie-web';
 // import  Box2  from './box2' ;
-import PersonList from './PersonalList';
+// import PersonList from './PersonalList';
 
 import {
   solid,
@@ -217,9 +217,9 @@ export default function App() {
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
       {/* <BoxProduct todos={items} mycaption="สินค้าลดราคา" /> */}
-      {/* <ImageGallery items={images} /> */}
+      <ImageGallery items={images} />
       {/* <Box2 mycaption = 'Boxx2---'/> */}
-      <PersonList />
+      {/* <PersonList /> */}
     </div>
   );
 }
