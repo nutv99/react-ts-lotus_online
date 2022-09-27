@@ -53,12 +53,12 @@ export default function App() {
   const obj = [
     { name: 'Alice', age: 29, country: 'Austria' },
     { name: 'Maithong', age: 11, country: 'Thailand' },
-    { name: 'Alice', age: 29, country: 'Austria' },
-    { name: 'Maithong', age: 11, country: 'Thailand' },
-    { name: 'Alice', age: 29, country: 'Austria' },
-    { name: 'Maithong', age: 11, country: 'Thailand' },
-    { name: 'Alice', age: 29, country: 'Austria' },
-    { name: 'Maithong', age: 11, country: 'Thailand' },
+    { name: 'Alice2', age: 29, country: 'Austria' },
+    { name: 'Maithong2', age: 11, country: 'Thailand' },
+    { name: 'Alice3', age: 29, country: 'Austria' },
+    { name: 'Maithong3', age: 11, country: 'Thailand' },
+    { name: 'Alice4', age: 29, country: 'Austria' },
+    { name: 'Maithong4', age: 11, country: 'Thailand' },
   ];
 
   const images = [
@@ -90,48 +90,50 @@ export default function App() {
         'https://img.freepik.com/free-psd/cosmetic-product-packaging-mockup_1150-40282.jpg?w=2000',
     },
     {
-      name: 'Alice',
+      name: 'Alice2',
       age: 29,
       ImgName:
         'https://cdn.shopify.com/s/files/1/2303/2711/files/2_e822dae0-14df-4cb8-b145-ea4dc0966b34.jpg?v=1617059123',
     },
     {
-      name: 'Maithong',
+      name: 'Maithong2',
       age: 11,
       ImgName:
         'https://assets-global.website-files.com/600fe6e1ff56087409a9f096/605b5a558848493df14d2d13_ecommerce-product-photography.jpg',
     },
     {
-      name: 'Alice',
+      name: 'Alice3',
       age: 29,
       ImgName:
         'https://img.freepik.com/free-psd/cosmetic-product-packaging-mockup_1150-40281.jpg?w=2000',
     },
     {
-      name: 'Maithong',
+      name: 'Maithong3',
       age: 11,
       ImgName:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0E4gSaEriDKmPePOOQXQf0EaL8o9Dhtd-Bg&usqp=CAU',
     },
     {
-      name: 'Alice',
+      name: 'Alice4',
       age: 29,
       ImgName:
         'https://m.media-amazon.com/images/G/31/amazonservices/Blog/SOA_Ref_Blog_5_Focus_on_your_interests_while_deciding_on_a_product._SL1280_FMjpg_.jpg',
     },
     {
-      name: 'Maithong',
+      name: 'Maithong4',
       age: 11,
       ImgName:
         'https://www.sellerapp.com/blog/wp-content/uploads/2017/01/lisiting.png',
     },
   ];
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
   //const bb = ItemData;
   const [items, setItems] = useState(ItemData);
+
+  const [item2s, setItem2s] = useState({});
 
   const dataClass: string = 'extraClass';
 
@@ -148,19 +150,27 @@ export default function App() {
       // const usersData = await ApiService.httpGet(
       //   'dataservice/clsItemMaster.php'
       // );
+
       // const usersData = await ApiService.axiosGet(
       //   'dataservice/clsItemMaster.php'
       // );
-      // const usersData = '{}';
+      // setItem2s(usersData);
+
+      // // วิธีที่ 2 ไม่ใช้ service
       axios
         .get('https://lovetoshopmall.com/dataservice/clsItemMaster.php')
-        .then((data) => {
-          console.log('sssss', data.data);
+        .then((res) => {
+          console.log('sssss', res.data);
+          //setItem2s([...res.data]);
+          const handleAdd = (todo) => {
+            const newTodos = [...res.data];
+            newTodos[todo.id] = todo;
+            setItem2s(newTodos);
+          };
+          console.log('Item2S', item2s);
         })
         .catch((error) => console.log(error));
 
-      // console.log('userData9999', data.data);
-      //setUsers(usersData);
       setLoading(false);
     } catch (err) {
       console.error(err.message);
@@ -208,11 +218,11 @@ export default function App() {
       </div>
       <div>
         <div>
-          <ul>
-            {users.map((user) => {
-              return <li key={user.id}>Name: {user.name}</li>;
+          {/* <ul>
+            {item2s.map((user) => {
+              return <li key={user.ItemName}>Name: {user.ItemName}</li>;
             })}
-          </ul>
+          </ul> */}
         </div>
       </div>
       {/* <Box1Col myimage={myimage} />
