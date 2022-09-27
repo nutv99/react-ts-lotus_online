@@ -129,11 +129,12 @@ export default function App() {
 
   // const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const count = 0;
 
   //const bb = ItemData;
   const [items, setItems] = useState(ItemData);
 
-  const [item2s, setItem2s] = useState({});
+  const [item2s, setItem2s] = useState([]);
 
   const dataClass: string = 'extraClass';
 
@@ -160,14 +161,17 @@ export default function App() {
       axios
         .get('https://lovetoshopmall.com/dataservice/clsItemMaster.php')
         .then((res) => {
-          console.log('sssss', res.data);
-          //setItem2s([...res.data]);
-          const handleAdd = (todo) => {
-            const newTodos = [...res.data];
-            newTodos[todo.id] = todo;
-            setItem2s(newTodos);
-          };
-          console.log('Item2S', item2s);
+          // console.log('sssss', res.data);
+          //const newTodos = [...res.data];
+          const newTodos = res.data;
+          // console.log('newTodo', newTodos);
+          // console.log('Item2S-999', item2s);
+          newTodos.map((item) => {
+            //console.log(item);
+            //setItem2s(item);
+            item2s.push(item);
+          });
+          console.log('Ddddd', item2s);
         })
         .catch((error) => console.log(error));
 
@@ -181,7 +185,7 @@ export default function App() {
 
   useEffect(() => {
     testApi();
-  }, []);
+  }, [count]);
 
   if (loading) {
     return <h1>Loading...</h1>;
