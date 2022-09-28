@@ -20,7 +20,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import { ItemData } from './dataservice';
 import * as CurrencyFormat from 'react-currency-format';
 import lottie from 'lottie-web';
-// import  Box2  from './box2' ;
+import BoxImage from './components/boxImage';
 // import PersonList from './PersonalList';
 
 import {
@@ -133,6 +133,7 @@ export default function App() {
 
   //const bb = ItemData;
   const [items, setItems] = useState(ItemData);
+  const [users, setUsers] = useState([]);
 
   const [item2s, setItem2s] = useState([]);
 
@@ -152,28 +153,32 @@ export default function App() {
       //   'dataservice/clsItemMaster.php'
       // );
 
-      // const usersData = await ApiService.axiosGet(
-      //   'dataservice/clsItemMaster.php'
-      // );
+      const usersData = await ApiService.axiosGet(
+        'dataservice/clsItemMaster.php'
+      );
+      setUsers(usersData);
+
+      console.log('user from main', usersData);
+      alert(usersData[0].ItemName);
       // setItem2s(usersData);
 
       // // วิธีที่ 2 ไม่ใช้ service
-      axios
-        .get('https://lovetoshopmall.com/dataservice/clsItemMaster.php')
-        .then((res) => {
-          // console.log('sssss', res.data);
-          //const newTodos = [...res.data];
-          const newTodos = res.data;
-          // console.log('newTodo', newTodos);
-          // console.log('Item2S-999', item2s);
-          newTodos.map((item) => {
-            //console.log(item);
-            //setItem2s(item);
-            item2s.push(item);
-          });
-          console.log('Ddddd', item2s);
-        })
-        .catch((error) => console.log(error));
+      // axios
+      //   .get('https://lovetoshopmall.com/dataservice/clsItemMaster.php')
+      //   .then((res) => {
+      //     // console.log('sssss', res.data);
+      //     //const newTodos = [...res.data];
+      //     const newTodos = res.data;
+      //     // console.log('newTodo', newTodos);
+      //     // console.log('Item2S-999', item2s);
+      //     newTodos.map((item) => {
+      //       //console.log(item);
+      //       //setItem2s(item);
+      //       item2s.push(item);
+      //     });
+      //     console.log('Ddddd', item2s);
+      //   })
+      //   .catch((error) => console.log(error));
 
       setLoading(false);
     } catch (err) {
@@ -232,7 +237,8 @@ export default function App() {
       {/* <Box1Col myimage={myimage} />
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
-      <BoxProduct todos={items} mycaption="สินค้าลดราคา" />
+      {/* <BoxProduct todos={item2s} mycaption="สินค้าลดราคา" /> */}
+      {/* <BoxImage todos={item2s} mycaption="สินค้าลดราคา" /> */}
       {/* <ImageGallery items={images} /> */}
 
       {/* <PersonList /> */}

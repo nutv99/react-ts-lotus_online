@@ -20,12 +20,12 @@ const axiosGet = (endpoint) => {
   //   // this.setState({ persons });
   //   console.log(res);
   // });
-  axios
+  return axios
     .get(`${configMall.api}/${endpoint}`)
-    .then((response) => handleResponse(response))
+    .then((response) => handleResponseAxios(response))
     .then((data) => {
       console.log('ApiService-', data.data);
-      return data;
+      return data.data;
     })
     .catch((error) => console.log(error));
 };
@@ -55,7 +55,7 @@ const httpGet = (endpoint) => {
   return fetch(`${configMall.api}/${endpoint}`, {
     ...config.options,
   })
-    .then((response) => handleResponse(response))
+    .then((response) => handleResponseFetch(response))
     .then((response) => response)
     .catch((error) => {
       console.error(error);
@@ -69,7 +69,7 @@ const httpPost = (endpoint, data) => {
     body: data ? JSON.stringify(data) : null,
     ...config.options,
   })
-    .then((response) => handleResponse(response))
+    .then((response) => handleResponseFetch(response))
     .then((response) => response)
     .catch((error) => {
       console.error(error);
@@ -83,7 +83,7 @@ const httpPut = (endpoint, data) => {
     body: data ? JSON.stringify(data) : null,
     ...config.options,
   })
-    .then((response) => handleResponse(response))
+    .then((response) => handleResponseFetch(response))
     .then((response) => response)
     .catch((error) => {
       console.error(error);
@@ -96,7 +96,7 @@ const httpDelete = (endpoint, data) => {
     method: 'delete',
     ...config.options,
   })
-    .then((response) => handleResponse(response))
+    .then((response) => handleResponseFetch(response))
     .then((response) => response)
     .catch((error) => {
       console.error(error);
@@ -104,7 +104,16 @@ const httpDelete = (endpoint, data) => {
     });
 };
 
-const handleResponse = (response) => {
+const handleResponseFetch = (response) => {
+  // You can handle 400 errors as well.
+  if (response.status === 200) {
+    return response.json();
+  } else {
+    throw Error(response | 'error');
+  }
+};
+
+const handleResponseAxios = (response) => {
   // You can handle 400 errors as well.
   if (response.status === 200) {
     return response;
