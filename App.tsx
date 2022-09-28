@@ -137,7 +137,8 @@ export default function App() {
 
   const [item2s, setItem2s] = useState([]);
 
-  const dataClass: string = 'extraClass';
+  const dataClass: string = 'extraClass'; 
+  const apicode1 : string = 'a199' ;
 
   const myimage =
     'https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664157944~exp=1664158544~hmac=0ae0995dcb2bfc7d7f9a1c3388a5793f3e588fc73abc486c1bcfc505adb9c68b';
@@ -159,7 +160,7 @@ export default function App() {
       setUsers(usersData);
 
       console.log('user from main', usersData);
-      alert(usersData[0].ItemName);
+      // alert(usersData[0].ItemName);
       // setItem2s(usersData);
 
       // // วิธีที่ 2 ไม่ใช้ service
@@ -238,7 +239,7 @@ export default function App() {
       <Box1Col myimage={myimage2} />
       <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
       {/* <BoxProduct todos={item2s} mycaption="สินค้าลดราคา" /> */}
-      {/* <BoxImage todos={item2s} mycaption="สินค้าลดราคา" /> */}
+      <BoxImage apicode={apicode1} mycaption="สินค้า BoxImageData" />
       {/* <ImageGallery items={images} /> */}
 
       {/* <PersonList /> */}

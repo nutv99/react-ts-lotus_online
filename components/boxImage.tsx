@@ -4,36 +4,29 @@ import axios from 'axios';
 import ApiService from '../Apiservice';
 import '../style.css';
 
-function BoxImage({ todos, mycaption }) {
-  const [item2s, setItem2s] = useState([]);
+function BoxImage({ apicode, mycaption }) {
+  const [itemDataList, setitemDataList] = useState([]);
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
 
-  const todoItems = '';
+  const subItem = itemDataList.map((todo) => (
+    <div key={todo.name} className="box2Col">
+      <div className="center">
+        <img src={todo.mainImageURL} className="imgThumb" />
+      </div>
+      <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
+      <div>{todo.SellPrice} </div>
+    </div>
+  ));
 
-  // item2s.map((todo) => (
-  //   <div key={todo.name} className="box2Col">
-  //     <div className="center">
-  //       <img src={todo.mainImageURL} className="imgThumb" />
-  //     </div>
-  //     <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
-  //     <div>{todo.SellPrice} </div>
-  //   </div>
-  // ));
-
-  const testApi = async () => {
+  const getDataAPI = async () => {
     // Test Get DATA
     try {
-      // const usersData = await ApiService.httpGet(
-      //   'dataservice/clsItemMaster.php'
-      // );
-
-      //
-
-      const usersData = await ApiService.httpGet(
+      const usersData = await ApiService.axiosGet(
         'dataservice/clsItemMaster.php'
       );
-      setUsers(usersData);
+      setitemDataList(usersData);
+      console.log('Box Image Data', usersData);
 
       // // วิธีที่ 2 ไม่ใช้ service
       // axios
@@ -43,10 +36,10 @@ function BoxImage({ todos, mycaption }) {
       //     //const newTodos = [...res.data];
       //     const newTodos = res.data;
       //     // console.log('newTodo', newTodos);
-      //     // console.log('Item2S-999', item2s);
+      //     // console.log('itemDataList-999', itemDataList);
 
-      //     setItem2s(res.data);
-      //     console.log('Ddddd', item2s);
+      //     setitemDataList(res.data);
+      //     console.log('Ddddd', itemDataList);
       //   })
       //   .catch((error) => console.log(error));
     } catch (err) {
@@ -56,15 +49,10 @@ function BoxImage({ todos, mycaption }) {
   };
 
   useEffect(() => {
-    testApi();
+    getDataAPI();
   }, []);
 
   return (
-    // {data.map(({ name, age,country }) => (
-    //   <p key={name}>Coffee type {age} in a {country} size.</p>
-    // ))}
-
-    //
     <div>
       <div className="captionBar">
         <div>{mycaption}</div>
@@ -72,7 +60,7 @@ function BoxImage({ todos, mycaption }) {
       </div>
 
       <div className="flex flexWrap">
-        {todoItems}
+        {subItem}
         {/* <FontAwesomeIcon icon={faUser} /> */}
       </div>
     </div>

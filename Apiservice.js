@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { webConfig,configMall99 } from './config';
 
 const config = {
   api: 'https://jsonplaceholder.typicode.com',
@@ -8,7 +9,7 @@ const config = {
 };
 
 const configMall = {
-  api: 'https://lovetoshopmall.com',
+  api: 'https://lovetoshopmall.com',  
   options: {
     headers: { 'content-type': 'application/json' },
   },
@@ -20,6 +21,9 @@ const axiosGet = (endpoint) => {
   //   // this.setState({ persons });
   //   console.log(res);
   // });
+  const aa = JSON.stringify(webConfig);
+  alert(aa.hostName);
+  console.log('webConfig', webConfig);
   return axios
     .get(`${configMall.api}/${endpoint}`)
     .then((response) => handleResponseAxios(response))
