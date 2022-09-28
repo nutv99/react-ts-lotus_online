@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as sss from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,12 +11,13 @@ export default function Heart(heartid: string) {
   const [isBagActive, setIsBagActive] = useState(false);
 
   const [heartID, setHeartID] = useState(heartid);
-  console.log(heartid);
+  //console.log(heartid);
   const aaa: any = heartid;
 
   const handleHeartClick = () => {
     // 👇️ toggle
     setIsHeartActive((current) => !current);
+
     PushToStorage();
 
     // 👇️ or set to true
@@ -30,27 +31,80 @@ export default function Heart(heartid: string) {
     // setIsActive(true);
   };
 
-  const PushToStorage = () => {
-    let cc = aaa.heartid;
-    console.log('ccc=', cc);
-    let AllList: string[];
+  const searchItem = () => {
+    let thisItemCode: string = aaa.heartid;
+    let oldlocalData = JSON.parse(localStorage.getItem('shopData'));
+    var foundItem = false;
+    if (oldlocalData) {
+      for (let i = 0; i <= oldlocalData.length - 1; i++) {
+        console.log(oldlocalData[i].itemCode, thisItemCode);
+        if (oldlocalData[i].itemCode === thisItemCode) {
+          foundItem = true;
+          return true;
+          break;
+        }
+      }
+    }
+    return false;
+  };
 
-    let localData = localStorage.getItem('shopData');
-    if (localData) {
+  const PushToStorage = () => {
+    let thisItemCode: string = aaa.heartid;
+    //console.log('ccc=', cc);
+    //let AllList: [];
+
+    let oldlocalData = JSON.parse(localStorage.getItem('shopData'));
+    var foundItem = false;
+    if (oldlocalData) {
+      for (let i = 0; i <= oldlocalData.length - 1; i++) {
+        console.log(oldlocalData[i].itemCode, thisItemCode);
+        if (oldlocalData[i].itemCode === thisItemCode) {
+          foundItem = true;
+          oldlocalData.splice(i, 1);
+          localStorage.setItem('shopData', JSON.stringify(oldlocalData));
+          return;
+          break;
+        }
+      }
+    }
+
+    if (oldlocalData) {
+      let localObj = [
+        {
+          membercode: 'guest',
+          itemCode: thisItemCode,
+        },
+      ];
+      console.log('OldLocal', oldlocalData);
+      console.log('thisObj', localObj);
+      let AllList = [...oldlocalData, ...localObj];
+      console.log('Mix Data', [...oldlocalData, ...localObj]);
       //alert('Have Local Data');
-      //AllList.push(cc);
+      //AllList.push(localObj);
       // if (localData.length > 1) {
-      AllList = [...localData];
+
       // }
-      AllList.push(cc);
+      //AllList.push(cc);
       localStorage.setItem('shopData', JSON.stringify(AllList));
     } else {
-      localStorage.setItem('shopData', cc);
+      let localObj = [
+        {
+          membercode: 'guest',
+          itemCode: thisItemCode,
+        },
+      ];
+      localStorage.setItem('shopData', JSON.stringify(localObj));
     }
     // let c = NewUtil.al();
     // let cc = aaa.heartid;
     // console.log('ccc=', cc);
   };
+
+  if (searchItem) {
+    alert('Found');
+  } else {
+    alert('Not Found');
+  }
 
   return (
     <div className="flex fullWidth">
