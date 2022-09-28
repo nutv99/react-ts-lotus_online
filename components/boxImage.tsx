@@ -1,8 +1,23 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ApiService from '../Apiservice';
+import Heart from './heart';
 import '../style.css';
+import ApiService from '../Apiservice';
+
+export const numberFormat = (value) =>
+  new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'THB',
+  }).format(value);
+
+export const THBath = (value) =>
+  new Intl.NumberFormat('th-TH', {
+    style: 'currency',
+    currency: 'THB',
+    // minimumFractionDigits: 0,
+    // maximumFractionDigits: 0,
+  }).format(value);
 
 function BoxImage({ apicode, mycaption }) {
   const [itemDataList, setitemDataList] = useState([]);
@@ -15,7 +30,11 @@ function BoxImage({ apicode, mycaption }) {
         <img src={todo.mainImageURL} className="imgThumb" />
       </div>
       <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
-      <div>{todo.SellPrice} </div>
+
+      <div>{THBath(todo.SellPrice)} </div>
+      <div>
+        <Heart />
+      </div>
     </div>
   ));
 
