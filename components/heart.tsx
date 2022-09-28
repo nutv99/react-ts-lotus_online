@@ -5,17 +5,18 @@ import * as sss from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../style.css';
 
-export default function Heart(heartid) {
+export default function Heart(heartid: string) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
 
   const [heartID, setHeartID] = useState(heartid);
-  console.log(heartid) ;
+  console.log(heartid);
+  const aaa: any = heartid;
 
   const handleHeartClick = () => {
     // 👇️ toggle
-    setIsHeartActive((current) => !current); 
-    PushToStorage() ;
+    setIsHeartActive((current) => !current);
+    PushToStorage();
 
     // 👇️ or set to true
     // setIsActive(true);
@@ -28,11 +29,11 @@ export default function Heart(heartid) {
     // setIsActive(true);
   };
 
-  const PushToStorage = () => { 
-
-        localStorage.setItem('HeartList',heartID)
-     
-  }
+  const PushToStorage = () => {
+    let cc = aaa.heartid;
+    console.log('ccc=', cc);
+    localStorage.setItem('HeartList', cc);
+  };
 
   return (
     <div className="flex fullWidth">
