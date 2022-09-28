@@ -9,7 +9,7 @@ const config = {
 };
 
 const configMall = {
-  api: 'https://lovetoshopmall.com',
+  // api: 'https://lovetoshopmall.com',
   apiHost: webConfig.hostName,
   options: {
     headers: { 'content-type': 'application/json' },
@@ -36,21 +36,21 @@ const axiosGet = (endpoint) => {
 };
 
 const axiosPost = (endpoint, payload) => {
-  axios.post(`${config.api}${endpoint}`, { payload }).then((res) => {
+  axios.post(`${config.apiHost}${endpoint}`, { payload }).then((res) => {
     console.log(res);
     console.log(res.data);
   });
 };
 
 const axiosPatch = (endpoint, payload) => {
-  axios.patch(`${config.api}${endpoint}`).then((res) => {
+  axios.patch(`${config.apiHost}${endpoint}`).then((res) => {
     console.log(res);
     console.log(res.data);
   });
 };
 
 const axiosDelete = (endpoint, payload) => {
-  axios.delete(`${config.api}${endpoint}`).then((res) => {
+  axios.delete(`${config.apiHost}${endpoint}`).then((res) => {
     console.log(res);
     console.log(res.data);
   });
