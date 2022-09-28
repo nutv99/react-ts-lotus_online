@@ -27,8 +27,8 @@ export default function Heart() {
 
 
   return (
-    <div>
-      <div
+    <div className='flex fullWidth'>
+      <div 
         style={{
           border: 0 , 
           color: isHeartActive ? 'pink' : 'lightgrey',
@@ -37,9 +37,9 @@ export default function Heart() {
       >
         <FontAwesomeIcon icon={sss.faHeartCircleCheck} />
       </div>
-      <div
+      <div className='mlAuto'
         style={{
-          border: 0 , 
+          border: 0 ,         
           color: isBagActive ? 'pink' : 'lightgrey',
         }}
         onClick={handleBagClick}

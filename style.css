@@ -183,3 +183,9 @@ p {
   height: 30px;
   width: 100%;
 }
+.mlAuto {
+  margin-left: auto;
+}
+.fullWidth {
+  width:100% ;
+}
