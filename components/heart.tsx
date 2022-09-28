@@ -39,7 +39,8 @@ export default function Heart(heartid: string) {
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
         console.log(oldlocalData[i].itemCode, thisItemCode);
         if (oldlocalData[i].itemCode === thisItemCode) {
-          foundItem = true;
+          foundItem = true; 
+          setIsHeartActive(true) ;
           return true;
           break;
         }
@@ -58,12 +59,14 @@ export default function Heart(heartid: string) {
     if (oldlocalData) {
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
         console.log(oldlocalData[i].itemCode, thisItemCode);
-        if (oldlocalData[i].itemCode === thisItemCode) {
-          foundItem = true;
-          oldlocalData.splice(i, 1);
-          localStorage.setItem('shopData', JSON.stringify(oldlocalData));
-          return;
-          break;
+        for (let j = 0; j <= oldlocalData[i].wishlist.length - 1; j++) { 
+          if (oldlocalData[i].wishlist[j] === thisItemCode) {
+            foundItem = true;
+            //oldlocalData.splice(i, 1);
+            //localStorage.setItem('shopData', JSON.stringify(oldlocalData));
+            return;
+            break;
+          }
         }
       }
     }
@@ -90,6 +93,7 @@ export default function Heart(heartid: string) {
       let localObj = [
         {
           membercode: 'guest',
+          wishlist : [thisItemCode],
           itemCode: thisItemCode,
         },
       ];
@@ -100,11 +104,11 @@ export default function Heart(heartid: string) {
     // console.log('ccc=', cc);
   };
 
-  if (searchItem) {
-    alert('Found');
-  } else {
-    alert('Not Found');
-  }
+ 
+
+  useEffect(() => {
+    searchItem();
+  }, []);
 
   return (
     <div className="flex fullWidth">
