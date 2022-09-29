@@ -10,9 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   
    
  // Section 2 **************** Start Declare Var  ********
-const [item2s, setItem2s] = useState([]);
-const [loading, setLoading] = useState(false);
-const count = 0;
+ 
+
     
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => {

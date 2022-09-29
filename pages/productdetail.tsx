@@ -38,7 +38,10 @@ function PageProductDetail() {
      // ****************************  Start Declare UseEfect    *******************************
        useEffect(() => {
           getDataAPI();
-       },[count]); 
+       },[]); 
+
+
+  
   return (
     <div className="swiperContainer">
       <Swiper
