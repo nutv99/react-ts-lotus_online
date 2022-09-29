@@ -15,13 +15,17 @@ import PageProductDetail from './pages/productdetail';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
-
 root.render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />              
+        <Route path="/" element={<App />} />
+        <Route
+          path=":lang/pageDetail/:productid"
+          element={<PageProductDetail />}
+        />
         <Route path="/pageDetail" element={<PageProductDetail />} />
+        {/* <Route path=":lang/invoices/:invoiceid" element={<Invoices />} /> */}
       </Routes>
       {/* <App /> */}
     </BrowserRouter>
