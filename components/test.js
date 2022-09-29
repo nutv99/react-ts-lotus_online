@@ -32,7 +32,22 @@ try {
  // ****************************  Start Declare UseEfect    *******************************
    useEffect(() => {
       getDataAPI();
-   },[count]);
+   },[count]); 
+
+  <ul>
+    {item2s.map((user) => {
+         return <li key={user.ItemName}>Name: {user.ItemName}</li>;
+     })}
+  </ul> 
+
+  const Obj1 = [{username:'A'},{username:'B'},{username:'C'}]
+  const Obj2 = [{username:'D'},{username:'E'},{username:'F'}]
+  // Merge Obj1,Obj2--> Obj3
+  Obj3 = [...Obj1,...Obj2]
+  //Result Obj3 = [{username:'A'},{username:'B'},{username:'C'},{username:'D'},{username:'E'},{username:'F'}]
+  });
+
+  
   
  //******************************* Start Rendor  ********************  
 return (
