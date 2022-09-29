@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-
 import axios from 'axios';
 
 import './style.css';
@@ -21,6 +20,12 @@ import { ItemData } from './dataservice';
 import * as CurrencyFormat from 'react-currency-format';
 import lottie from 'lottie-web';
 import BoxImage from './components/boxImage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 // import PersonList from './PersonalList';
 
 import {
@@ -246,3 +251,4 @@ export default function App() {
     </div>
   );
 }
+

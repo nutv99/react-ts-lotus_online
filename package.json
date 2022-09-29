@@ -9,6 +9,7 @@
     "@types/react": "18.0.21",
     "@types/react-currency-format": "1.0.0",
     "@types/react-dom": "18.0.6",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "0.27.2",
     "lord-icon-element": "3.4.3",
     "lottie-web": "5.9.6",
@@ -16,7 +17,8 @@
     "react-currency-format": "^1.1.0",
     "react-dom": "18.2.0",
     "react-fontawesome": "1.7.1",
-    "react-image-gallery": "^1.2.9"
+    "react-image-gallery": "^1.2.9",
+    "react-router-dom": "^6.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

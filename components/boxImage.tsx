@@ -4,6 +4,11 @@ import axios from 'axios';
 import Heart from './heart';
 import '../style.css';
 import ApiService from '../Apiservice';
+import PageProductDetail from '../pages/productdetail';
+// import { BrowserRouter as Router,  Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+
+// import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 export const numberFormat = (value) =>
   new Intl.NumberFormat('en-IN', {
@@ -25,19 +30,25 @@ function BoxImage({ apicode, mycaption }) {
   // const [users, setUsers] = useState([]);
 
   const subItem = itemDataList.map((todo) => (
-    <div key={todo.name} className="box2Col">
-      <div className="center">
-        <img src={todo.mainImageURL} className="imgThumb" />
-      </div>
-      <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
+    
+      <div key={todo.name} className="box2Col">
+        <div className="center">
+          <Link to="/pageDetail">
+            <img src={todo.mainImageURL} className="imgThumb" />
+          </Link>
+        </div>
+        <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
 
-      <div>{THBath(todo.SellPrice)} </div>
-      <div>
-        <Heart heartid={todo.ItemCode} />
+        <div>{THBath(todo.SellPrice)} </div>
+        <div>
+          <Heart heartid={todo.ItemCode} />
+        </div>
       </div>
-    </div>
+
+      
+   
   ));
-
+  
   const getDataAPI = async () => {
     // Test Get DATA
     try {
@@ -84,5 +95,6 @@ function BoxImage({ apicode, mycaption }) {
       </div>
     </div>
   );
+
 }
 export default BoxImage;

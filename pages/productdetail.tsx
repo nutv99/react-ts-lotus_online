@@ -6,6 +6,13 @@ import './style.css';
 import ApiService from '../Apiservice';
 import ImageGallery from 'react-image-gallery';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 const PageProductDetail = () => {
   const getItemData = async () => {
   const [loading, setLoading] = useState(false);
