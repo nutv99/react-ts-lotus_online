@@ -37,10 +37,10 @@ export default function Heart(heartid: string) {
     var foundItem = false;
     if (oldlocalData) {
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
-        console.log(oldlocalData[i].itemCode, thisItemCode);
+       // console.log(oldlocalData[i].itemCode, thisItemCode);
         if (oldlocalData[i].itemCode === thisItemCode) {
-          foundItem = true; 
-          setIsHeartActive(true) ;
+          foundItem = true;
+          setIsHeartActive(true);
           return true;
           break;
         }
@@ -56,10 +56,10 @@ export default function Heart(heartid: string) {
 
     let oldlocalData = JSON.parse(localStorage.getItem('shopData'));
     var foundItem = false;
-    if (oldlocalData) {
+    if (oldlocalData && oldlocalData.length > 0) {
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
-        console.log(oldlocalData[i].itemCode, thisItemCode);
-        for (let j = 0; j <= oldlocalData[i].wishlist.length - 1; j++) { 
+      //  console.log(oldlocalData[i].itemCode, thisItemCode);
+        for (let j = 0; j <= oldlocalData[i].wishlist.length - 1; j++) {
           if (oldlocalData[i].wishlist[j] === thisItemCode) {
             foundItem = true;
             //oldlocalData.splice(i, 1);
@@ -78,10 +78,10 @@ export default function Heart(heartid: string) {
           itemCode: thisItemCode,
         },
       ];
-      console.log('OldLocal', oldlocalData);
-      console.log('thisObj', localObj);
+      // console.log('OldLocal', oldlocalData);
+      // console.log('thisObj', localObj);
       let AllList = [...oldlocalData, ...localObj];
-      console.log('Mix Data', [...oldlocalData, ...localObj]);
+      // console.log('Mix Data', [...oldlocalData, ...localObj]);
       //alert('Have Local Data');
       //AllList.push(localObj);
       // if (localData.length > 1) {
@@ -93,7 +93,7 @@ export default function Heart(heartid: string) {
       let localObj = [
         {
           membercode: 'guest',
-          wishlist : [thisItemCode],
+          wishlist: [thisItemCode],
           itemCode: thisItemCode,
         },
       ];
@@ -103,8 +103,6 @@ export default function Heart(heartid: string) {
     // let cc = aaa.heartid;
     // console.log('ccc=', cc);
   };
-
- 
 
   useEffect(() => {
     searchItem();

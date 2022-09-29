@@ -19,6 +19,7 @@ import {
 function PageProductDetail() {
   const [item2s, setItem2s] = useState([]);
   const [itemImage, setItemImage] = useState([]);
+  const [itemDataList, setitemDataList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const [shopCart, setShopCart] = useState({ item1: 'Juice' });
@@ -31,35 +32,24 @@ function PageProductDetail() {
     try {
       setLoading(true);
       let endPoint = 'dataservice/clsProductDetail.php?itemcode=' + productid;
+      endPoint = 'dataservice/clsItemMaster.php';
+
       const resData = await ApiService.axiosGet(endPoint);
 
-      console.log('resData', resData);
+      setitemDataList(resData);
+
+      console.log('resData', itemDataList);
       // setItemImage((itemImage) => ({
       //   ...itemImage,
       //   ...resData,
       // }));
 
       //aa = [...resData];
-      setItemImage([...itemImage, ...resData]);
-      //itemImage.push(resData);
-      // console.log('resData88', JSON.stringify(itemImage));
-
-      //let updatedValue = {};
-      let updatedValue = { item1: '888888ppppp' };
-      let pp = { ...shopCart, ...updatedValue };
-      console.log('pp', pp);
-
-      // setShopCart((shopCart) => ({
-      //   ...shopCart,
-      //   ...pp,
+      // setItemImage((itemImage) => ({
+      //   ...itemImage,
+      //   ...resData,
       // }));
-      console.log('resData88', shopCart);
-
-      setShopCart((shopCart) => ({
-        ...shopCart,
-        ...updatedValue,
-      }));
-      console.log('resData99', shopCart);
+      // console.log('resData77', itemImage);
 
       setLoading(false);
     } catch (err) {
@@ -86,9 +76,7 @@ function PageProductDetail() {
 
   return (
     <div className="swiperContainer">
-      <h3>
-        ID :: {productid} {itemImage[0].ItemCode} ,
-      </h3>
+      <h3>ID :: {productid} ,</h3>
 
       <Swiper
         spaceBetween={50}
@@ -96,6 +84,11 @@ function PageProductDetail() {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
+        {itemDataList.map((todo) => (
+          <SwiperSlide>
+            <img src={todo.mainImageURL} className="imgSwiper" />
+          </SwiperSlide>
+        ))}
         {/* <SwiperSlide>
           <img src={itemImage[0].mainImageURL} className="imgSwiper" />
         </SwiperSlide> */}

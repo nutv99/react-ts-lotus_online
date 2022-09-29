@@ -164,7 +164,7 @@ export default function App() {
       );
       setUsers(usersData);
 
-      console.log('user from main', usersData);
+      //console.log('user from main', usersData);
       // alert(usersData[0].ItemName);
       // setItem2s(usersData);
 

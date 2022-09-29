@@ -24,12 +24,12 @@ const axiosGet = (endpoint) => {
   // });
   //const aa = webConfig ;
 
-  console.log('webConfig', webConfig.hostName);
+  //console.log('webConfig', webConfig.hostName);
   return axios
     .get(`${configMall.apiHost}/${endpoint}`)
     .then((response) => handleResponseAxios(response))
     .then((data) => {
-      console.log('ApiService-', data.data);
+     // console.log('ApiService-', data.data);
       return data.data;
     })
     .catch((error) => console.log(error));
@@ -37,8 +37,8 @@ const axiosGet = (endpoint) => {
 
 const axiosPost = (endpoint, payload) => {
   axios.post(`${config.apiHost}${endpoint}`, { payload }).then((res) => {
-    console.log(res);
-    console.log(res.data);
+    //console.log(res);
+    //console.log(res.data);
   });
 };
 

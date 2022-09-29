@@ -26,19 +26,18 @@ export const THBath = (value) =>
 
 function BoxImage({ apicode, mycaption }) {
   const [itemDataList, setitemDataList] = useState([]);
-  var page= '/pageDetail/' ;
-  
+  var page = '/pageDetail/';
+
   //const [sPage, setsPage] = useState('');
 
   // const [users, setUsers] = useState([]);
-  // <Link to={ /page= + item }> {item} 
+  // <Link to={ /page= + item }> {item}
 
   const subItem = itemDataList.map((todo) => (
     <div key={todo.name} className="box2Col">
-
       <div className="center">
         {/* { setsPage('/pageDetail/' + todo.ItemCode)} */}
-        <Link to={ page + todo.ItemCode}>
+        <Link to={page + todo.ItemCode}>
           <img src={todo.mainImageURL} className="imgThumb" />
         </Link>
       </div>
@@ -58,22 +57,6 @@ function BoxImage({ apicode, mycaption }) {
         'dataservice/clsItemMaster.php'
       );
       setitemDataList(usersData);
-      console.log('Box Image Data', usersData);
-
-      // // วิธีที่ 2 ไม่ใช้ service
-      // axios
-      //   .get('https://lovetoshopmall.com/dataservice/clsItemMaster.php')
-      //   .then((res) => {
-      //     // console.log('sssss', res.data);
-      //     //const newTodos = [...res.data];
-      //     const newTodos = res.data;
-      //     // console.log('newTodo', newTodos);
-      //     // console.log('itemDataList-999', itemDataList);
-
-      //     setitemDataList(res.data);
-      //     console.log('Ddddd', itemDataList);
-      //   })
-      //   .catch((error) => console.log(error));
     } catch (err) {
       console.error(err.message);
     } finally {
