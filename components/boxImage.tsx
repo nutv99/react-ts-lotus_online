@@ -6,7 +6,7 @@ import '../style.css';
 import ApiService from '../Apiservice';
 import PageProductDetail from '../pages/productdetail';
 // import { BrowserRouter as Router,  Route, Link } from 'react-router-dom';
-import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
@@ -26,29 +26,31 @@ export const THBath = (value) =>
 
 function BoxImage({ apicode, mycaption }) {
   const [itemDataList, setitemDataList] = useState([]);
+  var page= '/pageDetail/' ;
+  
+  //const [sPage, setsPage] = useState('');
 
   // const [users, setUsers] = useState([]);
+  // <Link to={ /page= + item }> {item} 
 
   const subItem = itemDataList.map((todo) => (
-    
-      <div key={todo.name} className="box2Col">
-        <div className="center">
-          <Link to="/pageDetail">
-            <img src={todo.mainImageURL} className="imgThumb" />
-          </Link>
-        </div>
-        <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
+    <div key={todo.name} className="box2Col">
 
-        <div>{THBath(todo.SellPrice)} </div>
-        <div>
-          <Heart heartid={todo.ItemCode} />
-        </div>
+      <div className="center">
+        {/* { setsPage('/pageDetail/' + todo.ItemCode)} */}
+        <Link to={ page + todo.ItemCode}>
+          <img src={todo.mainImageURL} className="imgThumb" />
+        </Link>
       </div>
+      <div className="caption boxCaption lineClamp3">{todo.ItemName}</div>
 
-      
-   
+      <div>{THBath(todo.SellPrice)} </div>
+      <div>
+        <Heart heartid={todo.ItemCode} />
+      </div>
+    </div>
   ));
-  
+
   const getDataAPI = async () => {
     // Test Get DATA
     try {
@@ -95,6 +97,5 @@ function BoxImage({ apicode, mycaption }) {
       </div>
     </div>
   );
-
 }
 export default BoxImage;

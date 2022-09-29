@@ -9,47 +9,50 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  useParams,
+} from 'react-router-dom';
 
 function PageProductDetail() {
-
   const [item2s, setItem2s] = useState([]);
   const [itemImage, setItemImage] = useState([]);
-  const [loading, setLoading] = useState(false);  
+  const [loading, setLoading] = useState(false);
+  let { productid } = useParams();
 
   const getDataAPI = async () => {
     try {
-         setLoading(true);
-          let endPoint = 'dataservice/clsItemMaster.php';
-          const resData = await ApiService.axiosGet(endPoint);
-          setItemImage(resData);
-          // console.log('user from main', usersData);
-          setLoading(false);
-     } catch (err) {
-          console.error(err.message);
-     } finally {
-          setLoading(false);
+      setLoading(true);
+      let endPoint = 'dataservice/clsItemMaster.php';
+      const resData = await ApiService.axiosGet(endPoint);
+      setItemImage(resData);
+      // console.log('user from main', usersData);
+      setLoading(false);
+    } catch (err) {
+      console.error(err.message);
+    } finally {
+      setLoading(false);
     }
-        
-     // ****************************  Start Declare UseEfect    *******************************
-       useEffect(() => {
-          getDataAPI();
-       },[]); 
+  };
 
+  // ****************************  Start Declare UseEfect    *******************************
+  useEffect(() => {
+    getDataAPI();
+  }, []);
 
-  
   return (
     <div className="swiperContainer">
+      <h3>ID :: {productid}</h3>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
+
+      
         <SwiperSlide>
           <img
             src="https://img.freepik.com/free-vector/micellar-water-with-ginkgo-biloba-extract-makeup-cleaning-3d-realistic-vector-advertising-banner-poster_33099-1252.jpg?w=740&t=st=1664436676~exp=1664437276~hmac=b51eced55f8cf41f2b8e3478a9beb72762b046514cdfcca9f457c3370139e480"
@@ -77,14 +80,6 @@ function PageProductDetail() {
             className="imgSwiper"
           />
         </SwiperSlide>
-
-
-        
-
-        
-
-
-       
       </Swiper>
     </div>
   );
