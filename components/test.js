@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  // Section 2 **************** Start Declare Var  ********
  
 
+
     
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => {
