@@ -1,13 +1,20 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import * as sIcon from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 import ApiService from './Apiservice';
 import { BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
- 
+  
+   
+ // Section 2 **************** Start Declare Var  ********
 const [item2s, setItem2s] = useState([]);
+const [loading, setLoading] = useState(false);
+const count = 0;
+    
+ //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => {
 try {
      setLoading(true);
@@ -21,7 +28,22 @@ try {
  } finally {
       setLoading(false);
 }
-useEffect(() => {
-testApi();
-},[count])
-
+    
+ // ****************************  Start Declare UseEfect    *******************************
+   useEffect(() => {
+      getDataAPI();
+   },[count]);
+  
+ //******************************* Start Rendor  ********************  
+return (
+   <div>
+     <div className='header99'>
+       {/* <ul>
+          {item2s.map((user) => {
+            return <li key={user.ItemName}>Name: {user.ItemName}</li>;
+          })}
+       </ul> */}
+     </div>
+   </div>
+)
+}
