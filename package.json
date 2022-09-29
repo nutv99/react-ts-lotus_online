@@ -18,7 +18,8 @@
     "react-dom": "18.2.0",
     "react-fontawesome": "1.7.1",
     "react-image-gallery": "^1.2.9",
-    "react-router-dom": "^6.4.1"
+    "react-router-dom": "^6.4.1",
+    "swiper": "^8.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
