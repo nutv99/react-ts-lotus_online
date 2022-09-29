@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import ApiService from '../Apiservice';
 import '../style.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,6 +16,29 @@ import 'swiper/css';
 // } from "react-router-dom";
 
 function PageProductDetail() {
+
+  const [item2s, setItem2s] = useState([]);
+  const [itemImage, setItemImage] = useState([]);
+  const [loading, setLoading] = useState(false);  
+
+  const getDataAPI = async () => {
+    try {
+         setLoading(true);
+          let endPoint = 'dataservice/clsItemMaster.php';
+          const resData = await ApiService.axiosGet(endPoint);
+          setItemImage(resData);
+          // console.log('user from main', usersData);
+          setLoading(false);
+     } catch (err) {
+          console.error(err.message);
+     } finally {
+          setLoading(false);
+    }
+        
+     // ****************************  Start Declare UseEfect    *******************************
+       useEffect(() => {
+          getDataAPI();
+       },[count]); 
   return (
     <div className="swiperContainer">
       <Swiper
