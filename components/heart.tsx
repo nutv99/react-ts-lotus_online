@@ -37,7 +37,7 @@ export default function Heart(heartid: string) {
     var foundItem = false;
     if (oldlocalData) {
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
-       // console.log(oldlocalData[i].itemCode, thisItemCode);
+        // console.log(oldlocalData[i].itemCode, thisItemCode);
         if (oldlocalData[i].itemCode === thisItemCode) {
           foundItem = true;
           setIsHeartActive(true);
@@ -58,14 +58,16 @@ export default function Heart(heartid: string) {
     var foundItem = false;
     if (oldlocalData && oldlocalData.length > 0) {
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
-      //  console.log(oldlocalData[i].itemCode, thisItemCode);
-        for (let j = 0; j <= oldlocalData[i].wishlist.length - 1; j++) {
-          if (oldlocalData[i].wishlist[j] === thisItemCode) {
-            foundItem = true;
-            //oldlocalData.splice(i, 1);
-            //localStorage.setItem('shopData', JSON.stringify(oldlocalData));
-            return;
-            break;
+        //  console.log(oldlocalData[i].itemCode, thisItemCode);
+        if (oldlocalData[i].wishlist) {
+          for (let j = 0; j <= oldlocalData[i].wishlist.length - 1; j++) {
+            if (oldlocalData[i].wishlist[j] === thisItemCode) {
+              foundItem = true;
+              //oldlocalData.splice(i, 1);
+              //localStorage.setItem('shopData', JSON.stringify(oldlocalData));
+              return;
+              break;
+            }
           }
         }
       }

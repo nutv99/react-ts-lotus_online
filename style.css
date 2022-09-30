@@ -80,7 +80,9 @@ p {
   height: 50px;
   border-radius: 6px;
 }
-
+.Caption {
+  margin-top: 10px;
+}
 .captionBar {
   display: flex;
   margin-top: 10px;
@@ -190,16 +192,16 @@ p {
   width: 100%;
 }
 .swiperContainer {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   width: 100%;
   border: 1px solid whitesmoke;
 }
 
 .imgSwiper {
   width: 100%;
-  height: 200px;
+  height: 300px;
 }
 
 .swiper-slide,
@@ -214,4 +216,14 @@ p {
   .imgSwiper {
     height: 400px;
   }
+}
+div {
+  margin-top: 10px;
+  padding: 2px;
+}
+.divHeart {
+  padding: 5px;
+  font-size: 25px;
+  padding-left: 15px;
+  padding-right: 20px;
 }
