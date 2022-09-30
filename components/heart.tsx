@@ -10,6 +10,8 @@ export default function Heart(heartid: string) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
 
+  const [numOrder, setnumOrder] = useState(1);
+
   const [heartID, setHeartID] = useState(heartid);
   //console.log(heartid);
   const aaa: any = heartid;
@@ -110,6 +112,15 @@ export default function Heart(heartid: string) {
     searchItem();
   }, []);
 
+  function addOrder(numOrder) {
+    let newOrder = numOrder++;
+    setnumOrder(newOrder);
+  }
+  function subOrder(numOrder) {
+    let newOrder = numOrder--;
+    numOrder > -1 ? setnumOrder(newOrder) : newOrder;
+  }
+
   return (
     <div className="flex fullWidth">
       <div
@@ -120,6 +131,13 @@ export default function Heart(heartid: string) {
         onClick={handleHeartClick}
       >
         <FontAwesomeIcon icon={sss.faHeartCircleCheck} />
+      </div>
+      <div className="mlAuto">
+        <button className="btnSub" onClick={() => subOrder(numOrder - 1)}>
+          -
+        </button>
+        <input type="text" className="txtnumOrder" value={numOrder} />
+        <button onClick={() => addOrder(numOrder + 1)}>+</button>
       </div>
       <div
         className="mlAuto"

@@ -276,3 +276,24 @@ div {
   padding: 10px;
   border-radius: 6px;
 }
+.txtnumOrder {
+  border-radius: 0px;
+  border: 1px solid lightgray;
+  text-align: center;
+  height: 30px;
+  padding: 10px;
+}
+.btnSub,
+.btnAdd {
+  height: 30px;
+  width: 35px;
+}
+
+
+.btnSub {
+  border-radius: 6px 0px 0px 6px; 
+  background-color: whitesmoke;
+}
+.btnAdd {
+  border-radius: 0px 6px 6px 0px;
+}
