@@ -6,6 +6,8 @@ import TabPanel from '../components/tab';
 import { Rating } from 'react-simple-star-rating';
 import ApiService from '../Apiservice';
 
+import { THBath } from '../service/newutil';
+
 import '../style.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -95,9 +97,31 @@ function PageProductDetail() {
 
       <Rating ratingValue="3" size="25" />
 
-      <div className='flex'>
-      <div>{itemDataList[0] && itemDataList[0].fullPrice}</div>
-      <div className= 'boxRight'>{itemDataList[0] && itemDataList[0].SellPrice}</div>
+      <div className="flex">
+        <div>
+          ราคาเต็ม : {THBath(itemDataList[0] && itemDataList[0].fullPrice)}
+        </div>
+        <div className="boxRight price">
+          ราคา : {itemDataList[0] && THBath(itemDataList[0].SellPrice)}
+          {/* {THBath(todo.SellPrice)}  */}
+        </div>
+      </div>
+
+      <div>
+        <h4>การจัดส่ง </h4>
+        <div className="box2 flex">
+          <div>
+            <p style={{ marginBottom: 10 }}>ส่งภายใน 1-2 วัน</p>
+            <p>ราคาจัดส่ง 80 บาท</p>
+          </div>
+          <div className="boxRight">
+            <img
+              src="https://download-th.com/wp-content/uploads/2021/02/Flash-express.jpg"
+              alt=""
+              style={{ width: 100 }}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="divHeart">
@@ -105,6 +129,7 @@ function PageProductDetail() {
           <Heart heartid={itemDataList[0].ItemCode} />
         )}
       </div>
+
       <div className="flex">
         <div
           onClick={(e) => {

@@ -20,6 +20,14 @@ const al = () => {
      alert(' Newutil Service') ;
 }
 
+export const THBath = (value) =>
+  new Intl.NumberFormat('th-TH', {
+    style: 'currency',
+    currency: 'THB',
+    // minimumFractionDigits: 0,
+    // maximumFractionDigits: 0,
+  }).format(value);
 
-export default { getJsonByFilter, filterItems,al
+
+export default { getJsonByFilter, filterItems,al,THBath
 }

@@ -265,3 +265,14 @@ div {
 .boxRight {
   margin-left: auto;
 }
+.price {
+  color: red;
+  font-weight: bold;
+}
+
+.box2 {
+  background-color: whitesmoke;
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 6px;
+}
