@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Heart from '../components/heart';
 import TabPanel from '../components/tab';
+import { Rating } from 'react-simple-star-rating';
 import ApiService from '../Apiservice';
 
 import '../style.css';
@@ -24,6 +25,7 @@ function PageProductDetail() {
   const [itemImage, setItemImage] = useState([]);
   const [itemDataList, setitemDataList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [rating, setRating] = useState(5);
 
   const [tabState, settabState] = useState(0);
 
@@ -89,7 +91,11 @@ function PageProductDetail() {
             </SwiperSlide>
           ))}
       </Swiper>
+
       <h2 className="Caption">{itemDataList[0] && itemDataList[0].ItemName}</h2>
+
+      <Rating ratingValue="3" size="25" />
+
       <div className="divHeart">
         {itemDataList[0] && itemDataList[0].ItemCode && (
           <Heart heartid={itemDataList[0].ItemCode} />
@@ -101,34 +107,40 @@ function PageProductDetail() {
             e.preventDefault();
             settabState(0);
           }}
-          className={tabState == 0 ? 'active': 'nonacctive'}
+          className={tabState == 0 ? 'active' : 'nonactive'}
         >
-          Tab1
+          รายละเอียด
         </div>
         <div
           onClick={(e) => {
             e.preventDefault();
             settabState(1);
           }}
-          className={  tabState == 1 && 'active'}
+          className={tabState == 1 ? 'active' : 'nonactive'}
         >
-          Tab2
+          วิธีใช้
         </div>
         <div
           onClick={(e) => {
             e.preventDefault();
             settabState(2);
           }}
-          className={tabState == 2 && 'active'}
+          className={tabState == 2 ? 'active' : 'nonactive'}
         >
-          Tab3
+          รีวิวสินค้า
         </div>
       </div>
-      <div className='border'>
-
-      {tabState == 0 && <div> Tab1 Content</div>}
-      {tabState == 1 && <div> Tab2 Content</div>}
-      {tabState == 2 && <div> Tab3 Content</div>}
+      <div className="border" style={{ marginBottom: 50 }}>
+        {tabState == 0 && (
+          <div style={{ marginTop: 10 }}>
+            <h3>{itemDataList[0] ? itemDataList[0].ItemName : ''}</h3>
+            <div className="boxDesc fontSarabun" style={{ marginTop: 20 }}>
+              {itemDataList[0] ? itemDataList[0].Description : ''}
+            </div>
+          </div>
+        )}
+        {tabState == 1 && <div className="fontSarabun"> Tab2 Content</div>}
+        {tabState == 2 && <div className="fontSarabun"> Tab3 Content</div>}
       </div>
     </div>
   );
