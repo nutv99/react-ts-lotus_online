@@ -82,6 +82,8 @@ p {
 }
 .Caption {
   margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
 }
 .captionBar {
   display: flex;
@@ -258,6 +260,7 @@ div {
   margin-bottom: 50px;
   color: #8f8c8c;
   font-size: 14px;
+  line-height: 30px;
 }
 .fontSarabun {
   font-family: 'Sarabun', sans-serif;
