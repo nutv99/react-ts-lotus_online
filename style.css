@@ -190,9 +190,17 @@ p {
   width: 100%;
 }
 .swiperContainer {
-  width: 350px;
-  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid whitesmoke;
 }
 .imgSwiper {
   height: 200px;
+}
+
+.swiper-slide,
+.swiper-slide-active {
+  text-align: center !important;
 }

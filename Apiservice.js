@@ -29,10 +29,13 @@ const axiosGet = (endpoint) => {
     .get(`${configMall.apiHost}/${endpoint}`)
     .then((response) => handleResponseAxios(response))
     .then((data) => {
-     // console.log('ApiService-', data.data);
+      // console.log('ApiService-', data.data);
       return data.data;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log(error);
+      alert(error);
+    });
 };
 
 const axiosPost = (endpoint, payload) => {

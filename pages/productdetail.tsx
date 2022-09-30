@@ -32,24 +32,14 @@ function PageProductDetail() {
     try {
       setLoading(true);
       let endPoint = 'dataservice/clsProductDetail.php?itemcode=' + productid;
-      endPoint = 'dataservice/clsItemMaster.php';
+      //endPoint = 'dataservice/999clsItemMaster.php';
 
       const resData = await ApiService.axiosGet(endPoint);
 
       setitemDataList(resData);
 
       console.log('resData', itemDataList);
-      // setItemImage((itemImage) => ({
-      //   ...itemImage,
-      //   ...resData,
-      // }));
-
-      //aa = [...resData];
-      // setItemImage((itemImage) => ({
-      //   ...itemImage,
-      //   ...resData,
-      // }));
-      // console.log('resData77', itemImage);
+      
 
       setLoading(false);
     } catch (err) {
@@ -61,8 +51,10 @@ function PageProductDetail() {
   };
 
   const setDataAPI = () => {
-    console.log('Change State');
-    console.log(itemImage);
+    console.log('Change State itemDataList', itemDataList);
+    if (itemDataList.length > 0) {
+      alert(itemDataList[0].subImage[0].subimageFileName);
+    }
   };
 
   // ****************************  Start Declare UseEfect    *******************************
@@ -72,23 +64,30 @@ function PageProductDetail() {
 
   useEffect(() => {
     setDataAPI();
-  }, [itemImage]);
+  }, [itemDataList]);
 
   return (
     <div className="swiperContainer">
-      <h3>ID :: {productid} ,</h3>
-
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {itemDataList.map((todo) => (
-          <SwiperSlide>
-            <img src={todo.mainImageURL} className="imgSwiper" />
-          </SwiperSlide>
-        ))}
+        {itemDataList &&
+          itemDataList.map((todo) => (
+            <SwiperSlide>
+              <img src={todo.mainImageURL} className="imgSwiper" />
+            </SwiperSlide>
+          ))}
+        {itemDataList[0] &&
+          itemDataList[0].subImage.map((subtodo) => (
+            <SwiperSlide>
+              <img src={subtodo.subimageFileName} className="imgSwiper" />
+            </SwiperSlide>
+          ))
+         }
+
         {/* <SwiperSlide>
           <img src={itemImage[0].mainImageURL} className="imgSwiper" />
         </SwiperSlide> */}
@@ -97,7 +96,7 @@ function PageProductDetail() {
           <img src={itemImage.subImage[0].subimage} className="imgSwiper" />
         </SwiperSlide> */}
 
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img
             src="https://img.freepik.com/free-vector/micellar-water-with-ginkgo-biloba-extract-makeup-cleaning-3d-realistic-vector-advertising-banner-poster_33099-1252.jpg?w=740&t=st=1664436676~exp=1664437276~hmac=b51eced55f8cf41f2b8e3478a9beb72762b046514cdfcca9f457c3370139e480"
             className="imgSwiper"
@@ -123,7 +122,7 @@ function PageProductDetail() {
             src="https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664436909~exp=1664437509~hmac=13366fdba5896a0555f6a46cc3d5cccb3ca9e4a2482a9e029092d3da28c4d427"
             className="imgSwiper"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );
