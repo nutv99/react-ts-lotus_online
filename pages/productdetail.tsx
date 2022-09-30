@@ -35,9 +35,7 @@ function PageProductDetail() {
       //endPoint = 'dataservice/999clsItemMaster.php';
 
       const resData = await ApiService.axiosGet(endPoint);
-
       setitemDataList(resData);
-
       console.log('resData', itemDataList);
       
 
@@ -53,7 +51,7 @@ function PageProductDetail() {
   const setDataAPI = () => {
     console.log('Change State itemDataList', itemDataList);
     if (itemDataList.length > 0) {
-      alert(itemDataList[0].subImage[0].subimageFileName);
+     // alert(itemDataList[0].subImage[0].subimageFileName);
     }
   };
 
