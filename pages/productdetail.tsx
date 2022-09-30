@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Heart from '../components/heart';
-import TabPanel from '../components/tab' ;
+import TabPanel from '../components/tab';
 import ApiService from '../Apiservice';
 
 import '../style.css';
@@ -24,6 +24,8 @@ function PageProductDetail() {
   const [itemImage, setItemImage] = useState([]);
   const [itemDataList, setitemDataList] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [tabState, settabState] = useState(0);
 
   const [shopCart, setShopCart] = useState({ item1: 'Juice' });
 
@@ -88,14 +90,46 @@ function PageProductDetail() {
           ))}
       </Swiper>
       <h2 className="Caption">{itemDataList[0] && itemDataList[0].ItemName}</h2>
-      <div className='divHeart'>
+      <div className="divHeart">
         {itemDataList[0] && itemDataList[0].ItemCode && (
           <Heart heartid={itemDataList[0].ItemCode} />
         )}
       </div>
-      <TabPanel/>
+      <div className="flex">
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            settabState(0);
+          }}
+          className={tabState == 0 && 'active'}
+        >
+          Tab1
+        </div>
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            settabState(1);
+          }}
+          className={tabState == 1 && 'active'}
+        >
+          Tab2
+        </div>
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            settabState(2);
+          }}
+          className={tabState == 2 && 'active'}
+        >
+          Tab3
+        </div>
+      </div>
+      <div className='border'>
 
-      
+      {tabState == 0 && <div> Tab1 Content</div>}
+      {tabState == 1 && <div> Tab2 Content</div>}
+      {tabState == 2 && <div> Tab3 Content</div>}
+      </div>
     </div>
   );
 }
