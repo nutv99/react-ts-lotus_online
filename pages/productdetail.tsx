@@ -28,7 +28,6 @@ function PageProductDetail() {
   const [rating, setRating] = useState(5);
 
   const [tabState, settabState] = useState(0);
-
   const [shopCart, setShopCart] = useState({ item1: 'Juice' });
 
   let { productid } = useParams();
@@ -95,6 +94,11 @@ function PageProductDetail() {
       <h2 className="Caption">{itemDataList[0] && itemDataList[0].ItemName}</h2>
 
       <Rating ratingValue="3" size="25" />
+
+      <div className='flex'>
+      <div>{itemDataList[0] && itemDataList[0].fullPrice}</div>
+      <div className= 'boxRight'>{itemDataList[0] && itemDataList[0].SellPrice}</div>
+      </div>
 
       <div className="divHeart">
         {itemDataList[0] && itemDataList[0].ItemCode && (

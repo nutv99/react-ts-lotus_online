@@ -262,3 +262,6 @@ div {
 .fontSarabun {
   font-family: 'Sarabun', sans-serif;
 }
+.boxRight {
+  margin-left: auto;
+}
