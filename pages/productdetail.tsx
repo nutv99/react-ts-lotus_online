@@ -101,7 +101,7 @@ function PageProductDetail() {
             e.preventDefault();
             settabState(0);
           }}
-          className={tabState == 0 && 'active'}
+          className={tabState == 0 ? 'active': 'nonacctive'}
         >
           Tab1
         </div>
@@ -110,7 +110,7 @@ function PageProductDetail() {
             e.preventDefault();
             settabState(1);
           }}
-          className={tabState == 1 && 'active'}
+          className={  tabState == 1 && 'active'}
         >
           Tab2
         </div>
