@@ -289,11 +289,25 @@ div {
   width: 35px;
 }
 
-
 .btnSub {
-  border-radius: 6px 0px 0px 6px; 
+  border-radius: 6px 0px 0px 6px;
   background-color: whitesmoke;
 }
 .btnAdd {
   border-radius: 0px 6px 6px 0px;
+}
+.myBadge {
+  position: relative;
+  top: -40px;
+  left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  border-radius: 50%;
 }

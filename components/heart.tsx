@@ -137,7 +137,9 @@ export default function Heart(heartid: string) {
           -
         </button>
         <input type="text" className="txtnumOrder" value={numOrder} />
-        <button onClick={() => addOrder(numOrder + 1)}>+</button>
+        <button className="btnAdd" onClick={() => addOrder(numOrder + 1)}>
+          +
+        </button>
       </div>
       <div
         className="mlAuto"
@@ -148,6 +150,7 @@ export default function Heart(heartid: string) {
         onClick={handleBagClick}
       >
         <FontAwesomeIcon icon={sss.faBagShopping} />
+        <div className="myBadge">{numOrder}</div>
       </div>
     </div>
   );
