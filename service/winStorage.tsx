@@ -10,11 +10,62 @@ function checkDataExists(storageName: string, keyName: string, keyValue: any) {
     return true;
   }
 }
-// const updateOrderData = (storageName) =>  {
 
-//   let Data = localStorage.getItem(storageName) ;
-//   Data = JSON.parse(Data);
+function setNewOrderOnLocal(
+  memberid: string,
+  itemcode: string,
+  newOrder: number
+) {
+  let storageData = JSON.parse(localStorage.getItem('shopData'));
+  const filtered = storageData.filter((obj) => {
+    return obj.membercode === memberid;
+  });
+  const filteredA = filtered[0].orderlist.filter((obj) => {
+    return obj.itemCode === itemcode;
+  });
 
-// }
+  if (filteredA && filteredA.length > 0) {
+    // Found
+    console.log(
+      ' Methood A1',
+      'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numOrder
+    );
 
-export default checkDataExists;
+    filteredA[0].numOrder = newOrder;
+    localStorage.setItem('shopData', JSON.stringify(storageData));
+  } else {
+    console.log(' Methood A1', ' Not Found ' + memberid + '-' + itemcode);
+  }
+}
+
+function getNumOrderOnLocal(
+  memberid: string,
+  itemcode: string,
+  newOrder: number
+) {
+  let storageData = JSON.parse(localStorage.getItem('shopData'));
+  const filtered = storageData.filter((obj) => {
+    return obj.membercode === memberid;
+  });
+  const filteredA = filtered[0].orderlist.filter((obj) => {
+    return obj.itemCode === itemcode;
+  });
+
+  if (filteredA && filteredA.length > 0) {
+    // Found
+    console.log(
+      ' Methood A1',
+      'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numOrder
+    );
+
+    return filteredA[0].numOrder ;
+    
+  } else {
+    console.log(' Methood A1', ' Not Found ' + memberid + '-' + itemcode);
+    return null ;
+  }
+}
+
+
+
+export default { checkDataExists, setNewOrderOnLocal,getNumOrderOnLocal };

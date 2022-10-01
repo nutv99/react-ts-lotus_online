@@ -4,7 +4,8 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as sss from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewUtil from '../service/newutil';
-import checkDataExists from '../service/winStorage';
+//import {checkDataExists , setNewOrderOnLocal } from '../service/winStorage';
+import winStorage from '../service/winStorage';
 import '../style.css';
 
 export default function Heart(heartid: string, showInput: string) {
@@ -43,6 +44,8 @@ export default function Heart(heartid: string, showInput: string) {
     let oldlocalData = JSON.parse(localStorage.getItem('shopData'));
     var foundItem = false;
     if (oldlocalData) {
+      let numOrder = winStorage.getNumOrderOnLocal('guest',thisItemCode,0) ; 
+      setnumOrder(numOrder) ;
       for (let i = 0; i <= oldlocalData.length - 1; i++) {
         // console.log(oldlocalData[i].itemCode, thisItemCode);
         if (oldlocalData[i].itemCode === thisItemCode) {
@@ -120,7 +123,13 @@ export default function Heart(heartid: string, showInput: string) {
   function addOrder(numOrder) {
     let newOrder = numOrder++;
     setnumOrder(newOrder);
-    if (checkDataExists('shopData', '', '')) {
+
+    let memberid = 'guest'; 
+    let itemcode = heartid.heartid ;
+    winStorage.setNewOrderOnLocal(memberid,itemcode,newOrder) ;
+
+    return ;
+    if (winStorage.checkDataExists('shopData', '', '')) {
       console.log('Found Local');
     } else {
       console.log('Not Found Local');
@@ -164,11 +173,33 @@ export default function Heart(heartid: string, showInput: string) {
   function subOrder(numOrder) {
     let newOrder = numOrder--;
     numOrder > -1 ? setnumOrder(newOrder) : newOrder;
+    let memberid = 'guest'; 
+    let itemcode = heartid.heartid ;
+    winStorage.setNewOrderOnLocal(memberid,itemcode,newOrder) ;
+    return;
 
+
+    // Filter 2 Level Method-1
     let storageData = JSON.parse(localStorage.getItem('tmpDataShop'));
     const filtered = storageData.filter((obj) => {
       return obj.membercode === 'guest';
+    });    
+    const filteredA = filtered[0].orderlist.filter((obj) => {
+      return obj.itemCode === heartid.heartid;
     });
+
+    if (filteredA) {
+      console.log(' Methood 1','Found ' + heartid.heartid) ;
+    } else {
+      console.log(' Method 1',' Not Found ' + heartid.heartid) ;
+    }
+
+    
+
+
+
+    
+
 
     let thisOrder = {
       "itemCode": heartid.heartid ,
@@ -192,6 +223,7 @@ export default function Heart(heartid: string, showInput: string) {
 
     }
     localStorage.setItem('tmpDataShop',JSON.stringify(storageData)) ;
+    localStorage.setItem('shopData',JSON.stringify(storageData)) ;
   }
 
   const numInput = () => {

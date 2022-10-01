@@ -5,7 +5,7 @@ import Heart from '../components/heart';
 import TabPanel from '../components/tab';
 import { Rating } from 'react-simple-star-rating';
 import ApiService from '../Apiservice';
-
+import winStorage from '../service/winStorage';
 import { THBath } from '../service/newutil';
 
 import '../style.css';
@@ -45,6 +45,10 @@ function PageProductDetail() {
       const resData = await ApiService.axiosGet(endPoint);
       setitemDataList(resData);
       console.log('resData', itemDataList);
+      let numOrder = winStorage.getNumOrderOnLocal('guest',productid,0) ; 
+      
+
+      
 
       setLoading(false);
     } catch (err) {
