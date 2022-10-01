@@ -164,6 +164,34 @@ export default function Heart(heartid: string, showInput: string) {
   function subOrder(numOrder) {
     let newOrder = numOrder--;
     numOrder > -1 ? setnumOrder(newOrder) : newOrder;
+
+    let storageData = JSON.parse(localStorage.getItem('tmpDataShop'));
+    const filtered = storageData.filter((obj) => {
+      return obj.membercode === 'guest';
+    });
+
+    let thisOrder = {
+      "itemCode": heartid.heartid ,
+      "numOrder":newOrder
+    }
+    const filtered2 = filtered[0].orderlist;
+    console.log('Filtered2', filtered2,' len', filtered2.length); 
+
+    let foundOrder = false;
+    for (let i=0;i<=filtered2.length-1;i++) {
+       if (filtered2[i].itemCode === heartid.heartid) {
+           foundOrder= true ;
+           filtered2[i].numOrder = newOrder ;
+       }
+    }
+    console.log('Found',foundOrder)  ;
+    
+    if (!foundOrder) {
+        filtered2.push(thisOrder) ;
+    } else {
+
+    }
+    localStorage.setItem('tmpDataShop',JSON.stringify(storageData)) ;
   }
 
   const numInput = () => {
