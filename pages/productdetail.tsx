@@ -126,9 +126,17 @@ function PageProductDetail() {
 
       <div className="divHeart">
         {itemDataList[0] && itemDataList[0].ItemCode && (
-          <Heart heartid={itemDataList[0].ItemCode} />
+          <Heart heartid={itemDataList[0].ItemCode} showInput="y" />
         )}
       </div>
+
+      <div className="flex center">
+         <button style={{marginRight:20}}>สั่งซื้อทันที</button>
+         <button>เพิ่มไปยังตะกร้าสินค้า</button>
+
+      </div>
+
+
 
       <div className="flex">
         <div

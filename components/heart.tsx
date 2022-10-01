@@ -6,17 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewUtil from '../service/newutil';
 import '../style.css';
 
-export default function Heart(heartid: string, showInput: boolean) {
+export default function Heart(heartid: string, showInput: string) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
 
-  const [showInputText, setshowInputText] = useState(showInput);
+  const [showInputText, setshowInputText] = useState(heartid.showInput);
 
   const [numOrder, setnumOrder] = useState(1);
 
   const [heartID, setHeartID] = useState(heartid);
 
-  //console.log(heartid);
+  //console.log('showInput999 ' ,showInput);
+  //console.log('showInput999 ', heartid.showInput);
   const aaa: any = heartid;
 
   const handleHeartClick = () => {
@@ -149,7 +150,7 @@ export default function Heart(heartid: string, showInput: boolean) {
       >
         <FontAwesomeIcon icon={sss.faHeartCircleCheck} />
       </div>
-      {showInputText === true ? 'numInput()' : ''}
+      {showInputText == 'y' ? numInput() : ''}
 
       <div
         className="mlAuto"
