@@ -45,10 +45,7 @@ function PageProductDetail() {
       const resData = await ApiService.axiosGet(endPoint);
       setitemDataList(resData);
       console.log('resData', itemDataList);
-      let numOrder = winStorage.getNumOrderOnLocal('guest',productid,0) ; 
-      
-
-      
+      let numOrder = winStorage.getNumOrderOnLocal('guest', productid, 0);
 
       setLoading(false);
     } catch (err) {
@@ -133,14 +130,6 @@ function PageProductDetail() {
           <Heart heartid={itemDataList[0].ItemCode} showInput="y" />
         )}
       </div>
-
-      <div className="flex center">
-         <button style={{marginRight:20}}>สั่งซื้อทันที</button>
-         <button>เพิ่มไปยังตะกร้าสินค้า</button>
-
-      </div>
-
-
 
       <div className="flex">
         <div

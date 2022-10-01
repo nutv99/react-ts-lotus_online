@@ -66,6 +66,100 @@ function getNumOrderOnLocal(
   }
 }
 
+const PushToStorage999 = (memberid,productid ,numorder) => {
+
+  let HaveMember : boolean ;
+  
+  let thisItemCode: string = productid;
+  console.log('ccc999=', productid);
+  //let AllList: [];
+
+  let storageData = JSON.parse(localStorage.getItem('shopData')) ;
+  const filtered = storageData.filter((obj) => {
+    return obj.membercode === memberid ;
+  }); 
+
+  if (filtered && filtered.length > 0 ) {
+    // Have Member
+     HaveMember = true ;
+  } else {
+    HaveMember = false ;
+  }
+  if (HaveMember === false) {
+     let localObj = [
+      {
+        membercode: 'guest',
+        wishlist: [] ,
+        itemCode: thisItemCode,
+        orderList: [ {
+          itemCode:productid,
+          numOrder:111
+        }]
+       }      
+    ];
+  }
 
 
-export default { checkDataExists, setNewOrderOnLocal,getNumOrderOnLocal };
+
+  const filteredA = filtered[0].orderlist.filter((obj) => {
+    return obj.itemCode === thisItemCode;
+  });
+
+  var foundItem = false;
+  if (storageData && storageData.length > 0) {
+    for (let i = 0; i <= storageData.length - 1; i++) {
+      //  console.log(oldlocalData[i].itemCode, thisItemCode);
+      if (storageData[i].wishlist) {
+        for (let j = 0; j <= storageData[i].wishlist.length - 1; j++) {
+          if (storageData[i].wishlist[j] === thisItemCode) {
+            foundItem = true;
+            //oldlocalData.splice(i, 1);
+            //localStorage.setItem('shopData', JSON.stringify(oldlocalData));
+            return;
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  if (storageData) {
+    let localObj = [
+      {
+        membercode: 'guest',
+        wishlist: [] ,
+        itemCode: thisItemCode,
+        orderList: [ {
+          itemCode:productid,
+          numOrder:111
+        }]
+        }      
+    ];
+    // console.log('OldLocal', oldlocalData);
+    // console.log('thisObj', localObj);
+    let AllList = [...storageData, ...localObj];
+    // console.log('Mix Data', [...oldlocalData, ...localObj]);
+    //alert('Have Local Data');
+    //AllList.push(localObj);
+    // if (localData.length > 1) {
+
+    // }
+    //AllList.push(cc);
+    localStorage.setItem('shopDataTmp99', JSON.stringify(AllList));
+  } else {
+    let localObj = [
+      {
+        membercode: 'guest',
+        wishlist: [thisItemCode],
+        itemCode: thisItemCode,
+      },
+    ];
+    localStorage.setItem('shopData', JSON.stringify(localObj));
+  }
+  // let c = NewUtil.al();
+  // let cc = aaa.heartid;
+  // console.log('ccc=', cc);
+};
+
+
+export default { checkDataExists, setNewOrderOnLocal,getNumOrderOnLocal,PushToStorage999 };

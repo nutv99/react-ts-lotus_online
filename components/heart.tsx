@@ -240,7 +240,26 @@ export default function Heart(heartid: string, showInput: string) {
     );
   };
 
+  const btnAddBasket= () => {
+   return (
+    <div className="flex center">
+      <button style={{marginRight:20}}>สั่งซื้อทันที</button>
+      <button onClick={AddToBasket} >เพิ่มไปยังตะกร้าสินค้า</button>
+    </div>
+
+   )
+  }
+
+  const AddToBasket = () => {
+    
+    let memberid = 'guest' ;
+    winStorage.PushToStorage999(memberid,heartID,numOrder) ;
+  }
+
+  
+
   return (
+  <div>  
     <div className="flex fullWidth">
       <div
         style={{
@@ -264,6 +283,10 @@ export default function Heart(heartid: string, showInput: string) {
         <FontAwesomeIcon icon={sss.faBagShopping} />
         <div className="myBadge">{numOrder}</div>
       </div>
+      
     </div>
+    {showInputText == 'y' ? btnAddBasket() : ''}
+
+  </div>  
   );
 }
