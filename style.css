@@ -153,6 +153,7 @@ p {
   color: #4e4e4e;
 }
 .center {
+  text-align: center;
   justify-content: center;
 }
 .flexWrap {
@@ -167,8 +168,8 @@ p {
   text-align: center;
   justify-content: center;
   margin-top: 10px;
-  height: 80px;
-  font-size: 14px;
+  height: 60px;
+  font-size: 12px;
 }
 .boxGrass {
   background-color: rgba(255, 255, 255, 0.15);
@@ -283,6 +284,7 @@ div {
   border-radius: 0px;
   border: 1px solid lightgray;
   text-align: center;
+  width: 50px;
   height: 30px;
   padding: 10px;
 }

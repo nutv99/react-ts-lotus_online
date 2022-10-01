@@ -6,13 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewUtil from '../service/newutil';
 import '../style.css';
 
-export default function Heart(heartid: string) {
+export default function Heart(heartid: string, showInput: boolean) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
+
+  const [showInputText, setshowInputText] = useState(showInput);
 
   const [numOrder, setnumOrder] = useState(1);
 
   const [heartID, setHeartID] = useState(heartid);
+
   //console.log(heartid);
   const aaa: any = heartid;
 
@@ -121,6 +124,20 @@ export default function Heart(heartid: string) {
     numOrder > -1 ? setnumOrder(newOrder) : newOrder;
   }
 
+  const numInput = () => {
+    return (
+      <div className="mlAuto">
+        <button className="btnSub" onClick={() => subOrder(numOrder - 1)}>
+          -
+        </button>
+        <input type="text" className="txtnumOrder" value={numOrder} />
+        <button className="btnAdd" onClick={() => addOrder(numOrder + 1)}>
+          +
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="flex fullWidth">
       <div
@@ -132,15 +149,8 @@ export default function Heart(heartid: string) {
       >
         <FontAwesomeIcon icon={sss.faHeartCircleCheck} />
       </div>
-      <div className="mlAuto">
-        <button className="btnSub" onClick={() => subOrder(numOrder - 1)}>
-          -
-        </button>
-        <input type="text" className="txtnumOrder" value={numOrder} />
-        <button className="btnAdd" onClick={() => addOrder(numOrder + 1)}>
-          +
-        </button>
-      </div>
+      {showInputText === true ? 'numInput()' : ''}
+
       <div
         className="mlAuto"
         style={{
