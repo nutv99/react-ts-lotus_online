@@ -47,7 +47,9 @@ try {
   //Result Obj3 = [{username:'A'},{username:'B'},{username:'C'},{username:'D'},{username:'E'},{username:'F'}]
   });
 
-  
+ const filtered = arr.filter(obj => {
+   return obj.country === 'Austria';
+ }); 
   
  //******************************* Start Rendor  ********************  
 return (

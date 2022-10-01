@@ -4,7 +4,7 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as sss from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewUtil from '../service/newutil';
-import  checkDataExists  from '../service/winStorage'; 
+import checkDataExists from '../service/winStorage';
 import '../style.css';
 
 export default function Heart(heartid: string, showInput: string) {
@@ -120,12 +120,27 @@ export default function Heart(heartid: string, showInput: string) {
   function addOrder(numOrder) {
     let newOrder = numOrder++;
     setnumOrder(newOrder);
-    if (checkDataExists('shopData','','') ) { 
-      console.log('Found Local')        
+    if (checkDataExists('shopData', '', '')) {
+      console.log('Found Local');
     } else {
-      console.log('Not Found Local')        
+      console.log('Not Found Local');
     }
+    let storageData = JSON.parse(localStorage.getItem('shopData'));
+    const filtered = storageData.filter((obj) => {
+      return obj.membercode === 'guest';
+    });
+
+    
+    const filtered2 = filtered[0].orderlist;
+    console.log('Filtered2', filtered2); 
+    filtered2.push(heartid.heartid) ;
+    localStorage.setItem('tmpDataShop',JSON.stringify(storageData)) ;
+
+
+
+    
   }
+
   function subOrder(numOrder) {
     let newOrder = numOrder--;
     numOrder > -1 ? setnumOrder(newOrder) : newOrder;

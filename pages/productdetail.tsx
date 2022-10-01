@@ -8,7 +8,6 @@ import ApiService from '../Apiservice';
 
 import { THBath } from '../service/newutil';
 
-
 import '../style.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
