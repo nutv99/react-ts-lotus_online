@@ -4,6 +4,7 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import * as sss from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewUtil from '../service/newutil';
+import  checkDataExists  from '../service/winStorage'; 
 import '../style.css';
 
 export default function Heart(heartid: string, showInput: string) {
@@ -119,6 +120,11 @@ export default function Heart(heartid: string, showInput: string) {
   function addOrder(numOrder) {
     let newOrder = numOrder++;
     setnumOrder(newOrder);
+    if (checkDataExists('shopData','','') ) { 
+      console.log('Found Local')        
+    } else {
+      console.log('Not Found Local')        
+    }
   }
   function subOrder(numOrder) {
     let newOrder = numOrder--;
