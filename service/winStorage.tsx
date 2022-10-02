@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function checkDataExists(storageName: string, keyName: string, keyValue: any) {
-
-
   let storageData = localStorage.getItem(storageName);
   if (!storageData) {
     return false;
@@ -50,8 +48,8 @@ function getNumOrderOnLocal(
     return obj.membercode === memberid;
   });
 
-  if (!filtered ) {
-     return -1 ;
+  if (!filtered) {
+    return -1;
   }
   const filteredA = filtered[0].orderlist.filter((obj) => {
     return obj.itemCode === itemcode;
@@ -64,109 +62,129 @@ function getNumOrderOnLocal(
       'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numOrder
     );
 
-    return filteredA[0].numOrder ;
-    
+    return filteredA[0].numOrder;
   } else {
     console.log(' Methood A1', ' Not Found ' + memberid + '-' + itemcode);
-    return null ;
+    return null;
   }
 }
 
-const PushToStorage999 = (memberid,productid ,numorder,ItemData) => {
-
-  let HaveMember : boolean ;  
+const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
+  let HaveMember: boolean;
   let thisItemCode: string = productid;
   console.log('ccc999=', productid);
 
   console.log('ccc888=', productid.ItemData);
-  //let AllList: [];
+  let workCase = 0;
 
-  let storageData = JSON.parse(localStorage.getItem('shopData')) ;
-  const filtered = storageData.filter((obj) => {
-    return obj.membercode === memberid ;
-  }); 
-
-  if (filtered && filtered.length > 0 ) {
-    // Have Member
-     HaveMember = true ;
-  } else {
-    HaveMember = false ;
-  }
-  if (HaveMember === false) {
-     let localObj = [
-      {
-        membercode: 'guest',
-        wishlist: [] ,
-        itemCode: thisItemCode,
-        orderList: [ {
-          itemCode:productid,
-          numOrder:111
-        }]
-       }      
-    ];
+  let storageData = JSON.parse(localStorage.getItem('shopDataTest'));
+  if (!storageData) {
+    workCase = 1;
   }
 
+  if (workCase === 0) {
+    const filtered = storageData.filter((obj) => {
+      return obj.membercode === memberid;
+    });
+    if (filtered && filtered.length > 0) {
+      // Have Member
+      workCase = 2;
+      HaveMember = true;
+    } else {
+      workCase = 3;
+      HaveMember = false;
+    }
+  }
 
+  if (workCase === 2) {
+      // มี Member นี้อยู่แล้ว ตรวจ ItemCode
+      const filteredA = filtered[0].orderlist.filter((obj) => {
+        return obj.itemCode === thisItemCode.heartid;
+      });
+      console.log('Search Item', thisItemCode, '=', filteredA);
+      if (filteredA && filteredA.length > 0) {
+        workCase = 4; // found Item ทำการ Update ยอดสินค้า
+      }
+  }
 
-  const filteredA = filtered[0].orderlist.filter((obj) => {
-    return obj.itemCode === thisItemCode;
-  });
+  alert(workCase);
 
-  var foundItem = false;
-  if (storageData && storageData.length > 0) {
-    for (let i = 0; i <= storageData.length - 1; i++) {
-      //  console.log(oldlocalData[i].itemCode, thisItemCode);
-      if (storageData[i].wishlist) {
-        for (let j = 0; j <= storageData[i].wishlist.length - 1; j++) {
-          if (storageData[i].wishlist[j] === thisItemCode) {
-            foundItem = true;
-            //oldlocalData.splice(i, 1);
-            //localStorage.setItem('shopData', JSON.stringify(oldlocalData));
-            return;
-            break;
+  if (workCase === 1) {
+      let thisData = {
+        memberid: memberid,
+        lang: 'th',
+        wishlist: [],
+        cartList: [productid.ItemData],
+      };
+      localStorage.setItem('shopTest', JSON.stringify(thisData));
+  }
+
+    const filteredA = filtered[0].orderlist.filter((obj) => {
+      return obj.itemCode === thisItemCode;
+    });
+
+    var foundItem = false;
+    if (storageData && storageData.length > 0) {
+      for (let i = 0; i <= storageData.length - 1; i++) {
+        //  console.log(oldlocalData[i].itemCode, thisItemCode);
+        if (storageData[i].wishlist) {
+          for (let j = 0; j <= storageData[i].wishlist.length - 1; j++) {
+            if (storageData[i].wishlist[j] === thisItemCode) {
+              foundItem = true;
+              //oldlocalData.splice(i, 1);
+              //localStorage.setItem('shopData', JSON.stringify(oldlocalData));
+              return;
+              break;
+            }
           }
         }
       }
     }
-  }
 
-  if (storageData) {
-    let localObj = [
-      {
-        membercode: 'guest',
-        wishlist: [] ,
-        itemCode: thisItemCode,
-        orderList: [ {
-          itemCode:productid,
-          numOrder:111
-        }]
-        }      
-    ];
-    // console.log('OldLocal', oldlocalData);
-    // console.log('thisObj', localObj);
-    let AllList = [...storageData, ...localObj];
-    // console.log('Mix Data', [...oldlocalData, ...localObj]);
-    //alert('Have Local Data');
-    //AllList.push(localObj);
-    // if (localData.length > 1) {
+    if (storageData) {
+      let localObj = [
+        {
+          membercode: 'guest',
+          wishlist: [],
+          itemCode: thisItemCode,
+          orderList: [
+            {
+              itemCode: productid,
+              numOrder: 111,
+            },
+          ],
+        },
+      ];
+      // console.log('OldLocal', oldlocalData);
+      // console.log('thisObj', localObj);
+      let AllList = [...storageData, ...localObj];
+      // console.log('Mix Data', [...oldlocalData, ...localObj]);
+      //alert('Have Local Data');
+      //AllList.push(localObj);
+      // if (localData.length > 1) {
 
-    // }
-    //AllList.push(cc);
-    localStorage.setItem('shopDataTmp99', JSON.stringify(AllList));
-  } else {
-    let localObj = [
-      {
-        membercode: 'guest',
-        wishlist: [thisItemCode],
-        itemCode: thisItemCode,
-      },
-    ];
-    localStorage.setItem('shopData', JSON.stringify(localObj));
-  }
-  // let c = NewUtil.al();
-  // let cc = aaa.heartid;
-  // console.log('ccc=', cc);
+      // }
+      //AllList.push(cc);
+      localStorage.setItem('shopDataTmp99', JSON.stringify(AllList));
+    } else {
+      let localObj = [
+        {
+          membercode: 'guest',
+          wishlist: [thisItemCode],
+          itemCode: thisItemCode,
+        },
+      ];
+      localStorage.setItem('shopData', JSON.stringify(localObj));
+    }
+    // let c = NewUtil.al();
+    // let cc = aaa.heartid;
+    // console.log('ccc=', cc);
+}
+
+
+export default {
+  checkDataExists,
+  setNewOrderOnLocal,
+  getNumOrderOnLocal,
+  PushToStorage999,
 };
-
-
-export default { checkDataExists, setNewOrderOnLocal,getNumOrderOnLocal,PushToStorage999 };
