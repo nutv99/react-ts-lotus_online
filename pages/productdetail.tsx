@@ -48,7 +48,7 @@ function PageProductDetail() {
       setitemDataList(resData);
       console.log('resDataAAA', resData);
       console.log('resData', itemDataList);
-      setitemDataList2(resData);
+      setitemDataList2(resData[0]);
       let numOrder = winStorage.getNumOrderOnLocal('guest', productid, 0);
 
       setLoading(false);
@@ -131,7 +131,7 @@ function PageProductDetail() {
 
       <div className="divHeart">
         {itemDataList[0] && itemDataList[0].ItemCode && (
-          <Heart heartid={itemDataList[0].ItemCode} showInput="y" />
+          <Heart heartid={itemDataList[0].ItemCode} showInput="y" ItemData={itemDataList[0]} />
         )}
       </div>
 

@@ -45,7 +45,7 @@ function BoxImage({ apicode, mycaption }) {
 
       <div>{THBath(todo.SellPrice)} </div>
       <div>
-        <Heart heartid={todo.ItemCode} showInput="n" />
+        <Heart heartid={todo.ItemCode} showInput="n" ItemData="" />
       </div>
     </div>
   ));

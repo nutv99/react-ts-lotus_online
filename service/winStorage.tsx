@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function checkDataExists(storageName: string, keyName: string, keyValue: any) {
+
+
   let storageData = localStorage.getItem(storageName);
   if (!storageData) {
     return false;
@@ -47,6 +49,10 @@ function getNumOrderOnLocal(
   const filtered = storageData.filter((obj) => {
     return obj.membercode === memberid;
   });
+
+  if (!filtered ) {
+     return -1 ;
+  }
   const filteredA = filtered[0].orderlist.filter((obj) => {
     return obj.itemCode === itemcode;
   });
@@ -66,12 +72,13 @@ function getNumOrderOnLocal(
   }
 }
 
-const PushToStorage999 = (memberid,productid ,numorder) => {
+const PushToStorage999 = (memberid,productid ,numorder,ItemData) => {
 
-  let HaveMember : boolean ;
-  
+  let HaveMember : boolean ;  
   let thisItemCode: string = productid;
   console.log('ccc999=', productid);
+
+  console.log('ccc888=', productid.ItemData);
   //let AllList: [];
 
   let storageData = JSON.parse(localStorage.getItem('shopData')) ;

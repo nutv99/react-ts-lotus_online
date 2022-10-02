@@ -8,7 +8,7 @@ import NewUtil from '../service/newutil';
 import winStorage from '../service/winStorage';
 import '../style.css';
 
-export default function Heart(heartid: string, showInput: string) {
+export default function Heart(heartid: string, showInput: string,ItemData:any) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
 
@@ -17,6 +17,7 @@ export default function Heart(heartid: string, showInput: string) {
   const [numOrder, setnumOrder] = useState(1);
 
   const [heartID, setHeartID] = useState(heartid);
+
 
   //console.log('showInput999 ' ,showInput);
   //console.log('showInput999 ', heartid.showInput);
@@ -253,7 +254,9 @@ export default function Heart(heartid: string, showInput: string) {
   const AddToBasket = () => {
     
     let memberid = 'guest' ;
-    winStorage.PushToStorage999(memberid,heartID,numOrder) ;
+    console.log('itemData',ItemData) ;
+    winStorage.PushToStorage999(memberid,heartID,numOrder,ItemData) ;
+
   }
 
   
