@@ -26,6 +26,8 @@ function PageProductDetail() {
   const [item2s, setItem2s] = useState([]);
   const [itemImage, setItemImage] = useState([]);
   const [itemDataList, setitemDataList] = useState([]);
+  const [itemDataList2, setitemDataList2] = useState({});
+
   const [loading, setLoading] = useState(false);
   const [rating, setRating] = useState(5);
 
@@ -44,7 +46,9 @@ function PageProductDetail() {
 
       const resData = await ApiService.axiosGet(endPoint);
       setitemDataList(resData);
+      console.log('resDataAAA', resData);
       console.log('resData', itemDataList);
+      setitemDataList2(resData);
       let numOrder = winStorage.getNumOrderOnLocal('guest', productid, 0);
 
       setLoading(false);
