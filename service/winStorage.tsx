@@ -93,7 +93,7 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
         cartList: [productid.ItemData],
       },
     ];
-    // localStorage.setItem('shopTest', JSON.stringify(thisData));
+    localStorage.setItem(localDataName, JSON.stringify(thisData));
     // return true;
   }
 
