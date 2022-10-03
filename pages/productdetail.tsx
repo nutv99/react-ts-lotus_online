@@ -13,13 +13,18 @@ interface userModel  {
   username:string ;
   password: string;
 }  
-   
+
+
+export function PageDetail<T>(ItemCode:string) {   
  // Section 2 **************** Start Declare Var  ********
 const [item2s, setItem2s] = useState([]);
 const [loading, setLoading] = useState(false);
 const count = 0;
 const user = {} as userModel ;
-const [userData,setUserData] = useState(user) ;
+const [userData,setUserData] = useState(user) ; 
+
+
+
     
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => {
@@ -53,4 +58,5 @@ return (
      </div>
    </div>
 )
+}
 }

@@ -21,7 +21,9 @@ const count = 0;
 const user = {} as userModel ;
 const [userData,setUsersData] = useState(user) ;
     
- //***********************   Start Declare Function  **********************   
+ //***********************   Start Declare Function  **********************    
+
+
 const getDataAPI = async () => {
 try {
      setLoading(true);
@@ -37,9 +39,9 @@ try {
 }
     
  // ****************************  Start Declare UseEfect    *******************************
-   useEffect(() => {
+useEffect(() => {
       getDataAPI();
-   },[count]);
+},[count]);
   
  //******************************* Start Rendor  ********************  
 return (
@@ -55,3 +57,4 @@ return (
 )
 }
 
+//export default PageDetail ;
