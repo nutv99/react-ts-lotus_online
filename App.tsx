@@ -11,7 +11,12 @@ import BoxProduct from './components/boxProduct';
 
 import Box1Col from './components/box1banner';
 import Box2Col from './components/box2Col';
+
+import PageProductDetail from './pages/productdetail';
+
 import ApiService from './Apiservice';
+
+
 
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -22,7 +27,6 @@ import lottie from 'lottie-web';
 import BoxImage from './components/boxImage';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Link
 } from "react-router-dom";

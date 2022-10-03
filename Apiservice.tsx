@@ -23,8 +23,8 @@ const axiosGet = (endpoint) => {
   //   console.log(res);
   // });
   //const aa = webConfig ;
-
-  //console.log('webConfig', webConfig.hostName);
+  
+  console.log('webConfig', webConfig.hostName);
   return axios
     .get(`${configMall.apiHost}/${endpoint}`)
     .then((response) => handleResponseAxios(response))
