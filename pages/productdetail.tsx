@@ -19,7 +19,7 @@ interface userModel {
   password: string;
 }
 
-export default function PageProductDetail(ItemCode: string) {
+function PageProductDetail(ItemCode: string) {
   // Section 2 **************** Start Declare Var  ********
 
   let { productid } = useParams();
@@ -76,3 +76,5 @@ export default function PageProductDetail(ItemCode: string) {
     );
   };
 }
+
+export default PageProductDetail ;
