@@ -16,20 +16,14 @@ import PageProductDetail from './pages/productdetail';
 
 import ApiService from './Apiservice';
 
-
-
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 import { ItemData } from './dataservice';
 import * as CurrencyFormat from 'react-currency-format';
 import lottie from 'lottie-web';
 import BoxImage from './components/boxImage';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import PersonList from './PersonalList';
 
 import {
@@ -146,8 +140,8 @@ export default function App() {
 
   const [item2s, setItem2s] = useState([]);
 
-  const dataClass: string = 'extraClass'; 
-  const apicode1 : string = 'a199' ;
+  const dataClass: string = 'extraClass';
+  const apicode1: string = 'a199';
 
   const myimage =
     'https://img.freepik.com/free-vector/perfume-fresh-aroma-glass-bottle-with-water-splash-blue-blurred-background_33099-1426.jpg?w=740&t=st=1664157944~exp=1664158544~hmac=0ae0995dcb2bfc7d7f9a1c3388a5793f3e588fc73abc486c1bcfc505adb9c68b';
@@ -255,4 +249,3 @@ export default function App() {
     </div>
   );
 }
-

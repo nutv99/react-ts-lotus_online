@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 import App from './App';
-import  PageProductDetail  from './pages/productdetail';
+import  PageProductDetail  from './pages/PageProductDetail';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
