@@ -118,8 +118,15 @@ function PageProductDetail() {
       <div className="myContainer">
         <h3> {item[0] && item[0].ItemName}</h3>
         <div style={{ marginTop: 25 }}>
-          {NewUtil.THBath(item[0] && item[0].SellPrice)}
-          {/* <Heart productid={productid} showInput='y' dataItem={{item}} />  */}
+          <div className='flex'>
+            <div className='salePrice'>{NewUtil.THBath(item[0] && item[0].SellPrice)}</div>
+            <div className= 'fullPrice' style={{marginLeft:20,fontSize:12}}>{NewUtil.THBath(item[0] && item[0].fullPrice)}</div>
+          </div>
+          <div className='flex'>
+            <div>{NewUtil.THBath(item[0] && item[0].SellPrice)}</div>
+            <div  style={{marginLeft:20,fontSize:12}}>{NewUtil.THBath(item[0] && item[0].fullPrice)}</div>
+          </div>
+          
           <div>
             <Heart heartid={productid} showInput="y" ItemData={item} />
           </div>
