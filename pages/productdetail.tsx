@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as sIcon from '@fortawesome/free-solid-svg-icons';
-import './style.css';
-import ApiService from './Apiservice';
+import '../style.css';
+import ApiService from '../Apiservice';
 import NewUtil from '../service/newutil';
 import { BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -32,7 +32,7 @@ try {
       setLoading(true);
       let endPoint = 'dataservice/clsItemMaster.php';
       const usersData = await ApiService.axiosGet(endPoint);
-      setUsers(usersData);
+      //setUsers(usersData);
       console.log('user from main', usersData);
       setLoading(false);
  } catch (err) {
