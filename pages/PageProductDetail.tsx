@@ -11,7 +11,8 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {Heart} from '../components/heart' ;
+
+import Heart from '../components/heart';
 // Import Swiper styles
 import 'swiper/css';
 
@@ -21,7 +22,7 @@ import 'swiper/css';
 // }
 
 function PageProductDetail() {
-  let { productid } = useParams();
+  let { productid } = useParams('');
   const [item, setItem] = useState([]);
 
   const getDataAPI = async () => {
@@ -75,12 +76,14 @@ function PageProductDetail() {
       {CarouselItem()}
       <div className="myContainer">
         <h3> {item[0] && item[0].ItemName}</h3>
-        <div style={{marginTop:25}}>
-        {NewUtil.THBath(item[0] && item[0].SellPrice)}
-        <Heart productid={productid} showInput='y' dataItem={{item}} /> 
+        <div style={{ marginTop: 25 }}>
+          {NewUtil.THBath(item[0] && item[0].SellPrice)}
+          {/* <Heart productid={productid} showInput='y' dataItem={{item}} />  */}
+          <div>
+            <Heart heartid={productid} showInput="y" ItemData={item} />
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
