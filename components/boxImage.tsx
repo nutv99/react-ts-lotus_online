@@ -4,7 +4,7 @@ import axios from 'axios';
 import Heart from './heart';
 import '../style.css';
 import ApiService from '../Apiservice';
-import PageProductDetail from '../pages/productdetail'; 
+import PageProductDetail from '../pages/PageProductDetail'; 
 // import { BrowserRouter as Router,  Route, Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';

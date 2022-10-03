@@ -8,7 +8,7 @@ import NewUtil from '../service/newutil';
 import winStorage from '../service/winStorage';
 import '../style.css';
 
-export default function Heart(heartid: string, showInput: string,ItemData:any) {
+export default function Heart(heartid) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
 
