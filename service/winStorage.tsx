@@ -71,15 +71,17 @@ function getNumOrderOnLocal(
 }
 
 const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
+
   let HaveMember: boolean;
   let thisItemCode: string = productid;
-  var filtered = [{}] as any;
-  console.log('ccc999=', productid);
+  var filtered = [{}] as any ;
+  var localDataName  = 'shopTest' ;
 
-  console.log('ccc888=', productid.ItemData.ItemCode);
+  // console.log('ccc999=', productid);
+  // console.log('ccc888=', productid.ItemData.ItemCode);
   let workCase = 0;
 
-  let storageData = JSON.parse(localStorage.getItem('shopTest'));
+  let storageData = JSON.parse(localStorage.getItem(localDataName));
   if (!storageData) {
     workCase = 1;
     productid.ItemData.numCart = numorder;
@@ -97,7 +99,7 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
 
   if (workCase === 0 && storageData) {
     // storageData = JSON.parse(localStorage.getItem('shopTest'));
-    console.log('dddd', storageData);
+    // console.log('dddd', storageData);
     filtered = storageData.filter((obj) => {
       return obj.customerid === memberid;
     });
@@ -125,14 +127,14 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
       }
     }
 
-    alert(foundItem + '-' + ItemPosition);
+   
    if (foundItem) {
      storageData[0].cartList[ItemPosition].numCart = numorder;
-     localStorage.setItem('ttt', JSON.stringify(storageData[0]));
+     localStorage.setItem(localDataName, JSON.stringify(storageData[0]));
    } else {
-     productid.ItemData = numorder;
+    productid.ItemData.numCart = numorder;
      storageData[0].cartList.push(productid.ItemData);     
-     localStorage.setItem('ttt', JSON.stringify(storageData[0]));
+     localStorage.setItem(localDataName, JSON.stringify(storageData[0]));
    }
 
    
