@@ -27,7 +27,7 @@ try {
      setLoading(true);
       let endPoint = 'dataservice/clsItemMaster.php';
       const usersData = await ApiService.axiosGet(endPoint);
-      setUsers(usersData);
+      setUsersData(usersData);
       console.log('user from main', usersData);
       setLoading(false);
  } catch (err) {
