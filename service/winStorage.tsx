@@ -91,8 +91,8 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
         cartList: [productid.ItemData],
       },
     ];
-    localStorage.setItem('shopTest', JSON.stringify(thisData));
-    return true;
+    // localStorage.setItem('shopTest', JSON.stringify(thisData));
+    // return true;
   }
 
   if (workCase === 0 && storageData) {
@@ -114,7 +114,7 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
   if (workCase === 2) {
     // มี Member นี้อยู่แล้ว ตรวจ ItemCode
     //
-    // alert(thisItemCode.ItemCode) ;
+    alert(productid.ItemData.ItemCode);
     foundItem = false;
     let ItemPosition = 0;
     for (let i = 0; i <= filtered[0].cartList.length - 1; i++) {
@@ -124,9 +124,18 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
         break;
       }
     }
+
     alert(foundItem + '-' + ItemPosition);
-    storageData[0].cartList[ItemPosition].numCart =  numorder ;
-    localStorage.setItem('ttt',JSON.stringify(storageData[0]))
+   if (foundItem) {
+     storageData[0].cartList[ItemPosition].numCart = numorder;
+     localStorage.setItem('ttt', JSON.stringify(storageData[0]));
+   } else {
+     productid.ItemData = numorder;
+     storageData[0].cartList.push(productid.ItemData);     
+     localStorage.setItem('ttt', JSON.stringify(storageData[0]));
+   }
+
+   
 
     // console.log('Search Item', thisItemCode, '=', filteredA);
     // if (filteredA && filteredA.length > 0) {
