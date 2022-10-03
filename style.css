@@ -316,3 +316,8 @@ div {
   font-size: 14px;
   border-radius: 50%;
 }
+
+.myContainer {
+  width:100% ;
+  border: 1px solid gray ;
+}

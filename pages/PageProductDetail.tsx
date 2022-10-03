@@ -72,6 +72,9 @@ function PageProductDetail() {
   return (
     <div>
       {CarouselItem()}
+      <div className='myContainer'>
+         
+      </div>
       {/* <Swiper
         spaceBetween={50}
         slidesPerView={1}
