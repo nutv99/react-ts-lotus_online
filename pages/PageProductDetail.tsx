@@ -72,25 +72,8 @@ function PageProductDetail() {
   return (
     <div>
       {CarouselItem()}
-      <div className='myContainer'>
-         
-      </div>
-      {/* <Swiper
-        spaceBetween={50}
-        slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        <SwiperSlide>
-          <img
-            src={item.length > 0 && item[0].mainImageURL}
-            className="imgSwiper"
-          />
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-      </Swiper> */}
+      
+      
     </div>
   );
 }
