@@ -318,6 +318,8 @@ div {
 }
 
 .myContainer {
-  width:100% ;
-  border: 1px solid gray ;
+  width: calc(100% - 10px);
+  margin: 5px;
+  border: 1px solid whitesmoke;
+  padding: 2px;
 }

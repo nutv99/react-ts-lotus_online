@@ -72,8 +72,9 @@ function PageProductDetail() {
   return (
     <div>
       {CarouselItem()}
-      
-      
+      <div className="myContainer">
+        <h3> {item[0] && item[0].ItemName}</h3>
+      </div>
     </div>
   );
 }
