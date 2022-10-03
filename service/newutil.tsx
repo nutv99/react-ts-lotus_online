@@ -26,8 +26,10 @@ export const THBath = (value) =>
     currency: 'THB',
     // minimumFractionDigits: 0,
     // maximumFractionDigits: 0,
-  }).format(value);
+  }).format(value) ;
 
+  
 
+  
 export default { getJsonByFilter, filterItems,al,THBath
 }

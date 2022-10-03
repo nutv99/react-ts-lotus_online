@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import NewUtil from '../service/newutil';
 
 function checkDataExists(storageName: string, keyName: string, keyValue: any) {
   let storageData = localStorage.getItem(storageName);
@@ -71,23 +72,25 @@ function getNumOrderOnLocal(
 
 const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
   let HaveMember: boolean;
-  let thisItemCode: string = productid; 
-  let  filtered = [{}] ;
+  let thisItemCode: string = productid;
+  var filtered = [{}] as any;
   console.log('ccc999=', productid);
 
-  console.log('ccc888=', productid.ItemData);
+  console.log('ccc888=', productid.ItemData.ItemCode);
   let workCase = 0;
 
   let storageData = JSON.parse(localStorage.getItem('shopTest'));
   if (!storageData) {
-    workCase = 1 ;
-    productid.ItemData.numCart = numorder ;
-    let thisData = [{
-      customerid: memberid,
-      lang: 'th',
-      wishlist: [],
-      cartList: [productid.ItemData],
-    }];
+    workCase = 1;
+    productid.ItemData.numCart = numorder;
+    let thisData = [
+      {
+        customerid: memberid,
+        lang: 'th',
+        wishlist: [],
+        cartList: [productid.ItemData],
+      },
+    ];
     localStorage.setItem('shopTest', JSON.stringify(thisData));
     return true;
   }
@@ -107,18 +110,30 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
       HaveMember = false;
     }
   }
-  
 
   if (workCase === 2) {
     // มี Member นี้อยู่แล้ว ตรวจ ItemCode
-    const filteredA = filtered[0].cartList.filter((obj) => {
-      return obj.itemCode === thisItemCode.heartid;
-    });
-    console.log('Search Item', thisItemCode, '=', filteredA);
-    if (filteredA && filteredA.length > 0) {
-      workCase = 4; // found Item ทำการ Update ยอดสินค้า
+    //
+    // alert(thisItemCode.ItemCode) ;
+    foundItem = false;
+    let ItemPosition = 0;
+    for (let i = 0; i <= filtered[0].cartList.length - 1; i++) {
+      if (filtered[0].cartList[i].ItemCode === productid.ItemData.ItemCode) {
+        ItemPosition = i;
+        foundItem = true;
+        break;
+      }
     }
+    alert(foundItem + '-' + ItemPosition);
+    storageData[0].cartList[ItemPosition].numCart =  numorder ;
+    localStorage.setItem('ttt',JSON.stringify(storageData[0]))
+
+    // console.log('Search Item', thisItemCode, '=', filteredA);
+    // if (filteredA && filteredA.length > 0) {
+    //   workCase = 4; // found Item ทำการ Update ยอดสินค้า
+    // }
   }
+  return;
 
   alert(workCase);
 
