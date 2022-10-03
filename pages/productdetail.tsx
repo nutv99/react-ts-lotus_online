@@ -24,10 +24,10 @@ const [userData,setUserData] = useState(user) ;
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => {
 try {
-     setLoading(true);
+      setLoading(true);
       let endPoint = 'dataservice/clsItemMaster.php';
       const usersData = await ApiService.axiosGet(endPoint);
-      setUsersData(usersData);
+      setUsers(usersData);
       console.log('user from main', usersData);
       setLoading(false);
  } catch (err) {

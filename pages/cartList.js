@@ -5,7 +5,7 @@ import * as sIcon from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 import ApiService from './Apiservice';
 import NewUtil from '../service/newutil';
-import { BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom';
+import { BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   
@@ -19,7 +19,7 @@ const [item2s, setItem2s] = useState([]);
 const [loading, setLoading] = useState(false);
 const count = 0;
 const user = {} as userModel ;
-const [userData,setUserData] = useState(user) ;
+const [userData,setUsersData] = useState(user) ;
     
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => {
@@ -27,7 +27,7 @@ try {
      setLoading(true);
       let endPoint = 'dataservice/clsItemMaster.php';
       const usersData = await ApiService.axiosGet(endPoint);
-      setUsers(usersData);
+      setUsersData(usersData);
       console.log('user from main', usersData);
       setLoading(false);
  } catch (err) {
