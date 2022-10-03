@@ -24,6 +24,8 @@ import 'swiper/css';
 function PageProductDetail() {
   let { productid } = useParams('');
   const [item, setItem] = useState([]);
+  const [tabState, setTabState] = useState(1);
+  const [activeTab, setActiveTab] = useState(1);
 
   const getDataAPI = async () => {
     try {
@@ -71,6 +73,45 @@ function PageProductDetail() {
     );
   };
 
+  const setTab = (tabno) => {
+    setActiveTab(tabno);
+  };
+
+  const Tab = () => {
+    return (
+      <div>
+        <div className="flex">
+          <button
+            onClick={() => {
+              setActiveTab(1);
+            }}
+          >
+            รายละเอียด
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab(2);
+            }}
+          >
+            วิธีใช้
+          </button>
+
+          <button
+            onClick={() => {
+              setActiveTab(3);
+            }}
+          >
+            รีวิวสินค้า
+          </button>
+        </div>
+
+        {activeTab == 1 && <div>{item[0] && item[0].Description}</div>}
+        {activeTab == 2 && <div>Tab2</div>}
+        {activeTab == 3 && <div>Tab3</div>}
+      </div>
+    );
+  };
+
   return (
     <div>
       {CarouselItem()}
@@ -81,6 +122,9 @@ function PageProductDetail() {
           {/* <Heart productid={productid} showInput='y' dataItem={{item}} />  */}
           <div>
             <Heart heartid={productid} showInput="y" ItemData={item} />
+          </div>
+          <div>
+            <Tab />
           </div>
         </div>
       </div>
