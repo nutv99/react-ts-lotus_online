@@ -116,7 +116,7 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
   if (workCase === 2) {
     // มี Member นี้อยู่แล้ว ตรวจ ItemCode
     //
-    alert(productid.ItemData.ItemCode);
+    //alert(productid.ItemData.ItemCode);
     foundItem = false;
     let ItemPosition = 0;
     for (let i = 0; i <= filtered[0].cartList.length - 1; i++) {
@@ -130,11 +130,11 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
    
    if (foundItem) {
      storageData[0].cartList[ItemPosition].numCart = numorder;
-     localStorage.setItem(localDataName, JSON.stringify(storageData[0]));
+     localStorage.setItem(localDataName, JSON.stringify(storageData));
    } else {
-    productid.ItemData.numCart = numorder;
+     productid.ItemData.numCart = numorder;
      storageData[0].cartList.push(productid.ItemData);     
-     localStorage.setItem(localDataName, JSON.stringify(storageData[0]));
+     localStorage.setItem(localDataName, JSON.stringify(storageData));
    }
 
    
