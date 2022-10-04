@@ -16,14 +16,17 @@ import Heart from '../components/heart';
 // Import Swiper styles
 import 'swiper/css';
 
-// interface userModel {
-//   username: string;
-//   password: string;
-// }
+interface userModel {
+  username: string;
+  password: string;
+}
 
 function PageProductDetail() {
   let { productid } = useParams('');
   const [item, setItem] = useState([]);
+  const [itemReviews, setItemReviews] = useState([]);
+  const [review, setReview] = useState(0);
+
   const [tabState, setTabState] = useState(1);
   const [activeTab, setActiveTab] = useState(1);
 
@@ -32,8 +35,19 @@ function PageProductDetail() {
       let endPoint = 'dataservice/clsProductDetail.php?itemcode=' + productid;
       const ProductData = await ApiService.axiosGet(endPoint);
       setItem(ProductData);
-
       console.log('Item Data is', ProductData);
+    } catch (err) {
+      console.error(err.message);
+    } finally {
+    }
+  }; // end get DataAPI
+
+  const getItemReview = async () => {
+    try {
+      let endPoint = 'dataservice/clsItemReview.php?itemcode=' + productid;
+      const ProductReview = await ApiService.axiosGet(endPoint);
+      setItemReviews(ProductReview);
+      console.log('Item Review is', ProductReview);
     } catch (err) {
       console.error(err.message);
     } finally {
@@ -43,6 +57,10 @@ function PageProductDetail() {
   useEffect(() => {
     getDataAPI();
   }, []);
+
+   useEffect(() => {
+     getItemReview();
+   }, []);
 
   const CarouselItem = () => {
     return (
@@ -71,7 +89,16 @@ function PageProductDetail() {
           })}
       </Swiper>
     );
-  };
+  }; 
+
+  const pageReview = () => {
+   
+    return(
+    itemReviews && itemReviews.map((itemReview) => {         
+        return(<div>{itemReview.comment}</div> )        
+    })
+    )
+  }
 
   const setTab = (tabno) => {
     setActiveTab(tabno);
@@ -107,7 +134,7 @@ function PageProductDetail() {
 
         {activeTab == 1 && <div>{item[0] && item[0].Description}</div>}
         {activeTab == 2 && <div>Tab2</div>}
-        {activeTab == 3 && <div>Tab3</div>}
+        {activeTab == 3 && <div><pageReview /></div>}
       </div>
     );
   };
