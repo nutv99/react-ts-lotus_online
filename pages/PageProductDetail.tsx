@@ -58,9 +58,9 @@ function PageProductDetail() {
     getDataAPI();
   }, []);
 
-   useEffect(() => {
-     getItemReview();
-   }, []);
+  useEffect(() => {
+    getItemReview();
+  }, []);
 
   const CarouselItem = () => {
     return (
@@ -89,16 +89,22 @@ function PageProductDetail() {
           })}
       </Swiper>
     );
-  }; 
+  };
+
+  // const pageReviewAA = () => {
+  //   return (
+  //     itemReviews && itemReviews.length &&
+  //     itemReviews.map((itemReview) => {
+  //       return <div>99999</div>;
+  //     })
+  //   );
+  // };
 
   const pageReview = () => {
-   
-    return(
-    itemReviews && itemReviews.map((itemReview) => {         
-        return(<div>{itemReview.comment}</div> )        
-    })
+    return (
+     <div> ssss </div>
     )
-  }
+  };
 
   const setTab = (tabno) => {
     setActiveTab(tabno);
@@ -131,10 +137,14 @@ function PageProductDetail() {
             รีวิวสินค้า
           </button>
         </div>
-
+        
         {activeTab == 1 && <div>{item[0] && item[0].Description}</div>}
         {activeTab == 2 && <div>Tab2</div>}
-        {activeTab == 3 && <div><pageReview /></div>}
+        {activeTab == 3 && (
+          <div>
+            ssss
+          </div>
+        )}
       </div>
     );
   };
@@ -191,6 +201,7 @@ function PageProductDetail() {
           </div>
         </div>
       </div>
+    
     </div>
   );
 }
