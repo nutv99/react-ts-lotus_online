@@ -142,7 +142,12 @@ function PageProductDetail() {
         {activeTab == 2 && <div>Tab2</div>}
         {activeTab == 3 && (
           <div>
-            ssss
+            {
+              itemReviews && itemReviews.length &&
+                 itemReviews.map((itemReview) => {
+                     return <div>{itemReview.comment}</div>;
+                 })
+            }
           </div>
         )}
       </div>
