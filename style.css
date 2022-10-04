@@ -335,4 +335,13 @@ div {
   text-decoration: line-through;
   
 }
+.discTag {
+  margin-left: auto;
+  background-color: coral;
+  padding:5px;
+  border-radius: 6px;
+}
 
+.imgA {
+  height:50px;
+}
