@@ -19,7 +19,6 @@ const count = 0;
     
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => { 
-
 // let numOrder = winStorage.getNumOrderOnLocal('guest',thisItemCode,0) ; 
 try {
      setLoading(true);
