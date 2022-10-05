@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as sIcon from '@fortawesome/free-solid-svg-icons';
 import './style.css';
-import ApiService from './Apiservice';
+import ApiService from '../Apiservice';
 import NewUtil from '../service/newutil';
-import { BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom';
+import { BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   
-   
+function CartLLL() {   
  // Section 2 **************** Start Declare Var  ********
 const [item2s, setItem2s] = useState([]);
 const [loading, setLoading] = useState(false);
@@ -28,23 +28,25 @@ try {
       console.error(err.message);
  } finally {
       setLoading(false);
+ }
 }
     
  // ****************************  Start Declare UseEfect    *******************************
    useEffect(() => {
       getDataAPI();
    },[count]);
-
-   
   
  //******************************* Start Rendor  ********************  
 return (
    <div>
-     <div className='bordergray flex'>
-      <div className=''>BoxL</div>
-      <div className='mlAuto'>BoxR</div>
-   </div>  
-     
+     <div className='header99'>
+       {/* <ul>
+          {item2s.map((user) => {
+            return <li key={user.ItemName}>Name: {user.ItemName}</li>;
+          })}
+       </ul> */}
+     </div>
    </div>
 )
 }
+export default CartLLL
