@@ -1,4 +1,5 @@
 import axios from 'axios';
+import React = require('react');
 import webConfig from './config';
 
 const config = {
@@ -15,6 +16,7 @@ const configMall = {
     headers: { 'content-type': 'application/json' },
   },
 };
+
 
 const axiosGet = (endpoint) => {
   // axios.get(`${config.api}${endpoint}`).then((res) => {
@@ -129,7 +131,9 @@ const handleResponseAxios = (response) => {
   } else {
     throw Error(response | 'error');
   }
-};
+}; 
+
+
 
 export default {
   httpGet,
