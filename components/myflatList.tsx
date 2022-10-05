@@ -14,8 +14,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function MyFlatList({ todos }) {
   const todoItems = todos.map((todo) => (
     <div key={todo.name}>
-      <div className="itemCircle">
-        <FontAwesomeIcon icon={sss.faCake} />
+      <div className="itemCircle99" style={{padding:10}}>
+        {/* <FontAwesomeIcon icon={sss.faCake} /> */}
+        <img src={todo.img} alt="" className="itemCircle" />
       </div>
       <div className="boxCaption">{todo.name}</div>
     </div>

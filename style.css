@@ -11,7 +11,7 @@ p {
   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDzSoYdaZCH-hSYvGfHxe1R8lxMm_ZRhmHeg&usqp=CAU);
   height: 26vh;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 .logo {
   width: 50px;
@@ -56,7 +56,7 @@ p {
   overflow-x: scroll;
   border: 1px solid whitesmoke;
   margin: 10px;
-  padding: 10px;
+  /* padding: 10px; */
   padding-right: 20px;
   border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -97,10 +97,10 @@ p {
   margin-right: 5px;
 }
 .itemCircle {
-  padding: 5px;
+  padding: 10px;
 
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -168,7 +168,7 @@ p {
   text-align: center;
   justify-content: center;
   margin-top: 10px;
-  height: 60px;
+  /* height: 60px; */
   font-size: 12px;
 }
 .boxGrass {
@@ -218,6 +218,10 @@ p {
   }
   .imgSwiper {
     height: 400px;
+  }
+  .header99 {
+    height: 350px;
+    background-size: 100%;
   }
 }
 div {
@@ -333,16 +337,15 @@ div {
   color: lightgray;
   font-size: 12px;
   text-decoration: line-through;
-  
 }
 .discTag {
   margin-left: auto;
   background-color: coral;
-  padding:5px;
+  padding: 5px;
   border-radius: 6px;
 }
 
 .imgA {
-  height:50px;
+  height: 50px;
   max-height: 50px;
 }

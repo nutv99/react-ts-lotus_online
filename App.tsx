@@ -54,14 +54,54 @@ function Welcome(props) {
 export default function App() {
   let menu99 = ['aaa', 'bbb'];
   const obj = [
-    { name: 'Alice', age: 29, country: 'Austria' },
-    { name: 'Maithong', age: 11, country: 'Thailand' },
-    { name: 'Alice2', age: 29, country: 'Austria' },
-    { name: 'Maithong2', age: 11, country: 'Thailand' },
-    { name: 'Alice3', age: 29, country: 'Austria' },
-    { name: 'Maithong3', age: 11, country: 'Thailand' },
-    { name: 'Alice4', age: 29, country: 'Austria' },
-    { name: 'Maithong4', age: 11, country: 'Thailand' },
+    {
+      name: 'อิเลคทรอนิคส์',
+      age: 29,
+      country: 'Austria',
+      img: 'https://img.icons8.com/ultraviolet/452/android.png',
+    },
+    {
+      name: 'เครื่องใช้ไฟฟ้า',
+      age: 11,
+      country: 'Thailand',
+      img: 'https://img.icons8.com/ultraviolet/2x/sdtv.png',
+    },
+    {
+      name: 'อาหาร',
+      age: 29,
+      country: 'Austria',
+      img: 'https://img.icons8.com/ultraviolet/2x/yogurt.png',
+    },
+    {
+      name: 'เด็กอ่อน',
+      age: 11,
+      country: 'Thailand',
+      img: 'https://img.icons8.com/ultraviolet/2x/stroller.png',
+    },
+    {
+      name: 'สัตว์เลี้ยง',
+      age: 29,
+      country: 'Austria',
+      img: 'https://img.icons8.com/ultraviolet/2x/dog-bowl.png',
+    },
+    {
+      name: 'เครื่องใช้ในบ้าน',
+      age: 11,
+      country: 'Thailand',
+      img: 'https://img.icons8.com/ultraviolet/2x/caretaker.png',
+    },
+    {
+      name: 'เสื้อผ้าชาย',
+      age: 29,
+      country: 'Austria',
+      img: 'https://img.icons8.com/ultraviolet/2x/coat.png',
+    },
+    {
+      name: 'เสื้อผ้าหญิง',
+      age: 11,
+      country: 'Thailand',
+      img: 'https://img.icons8.com/ultraviolet/2x/slip-dress.png',
+    },
   ];
 
   const images = [
@@ -208,7 +248,6 @@ export default function App() {
           <div>ข้อมูลข่าวสาร</div>
           <div className="mlauto mr10">EN/TH</div>
         </div>
-
         <div className="topbar flex">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/ZDF_logo%21_Logo_2021.svg/800px-ZDF_logo%21_Logo_2021.svg.png"
