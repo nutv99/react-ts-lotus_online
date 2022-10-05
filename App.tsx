@@ -100,7 +100,7 @@ export default function App() {
       name: 'เสื้อผ้าหญิง',
       age: 11,
       country: 'Thailand',
-      img: 'https://img.icons8.com/ultraviolet/2x/slip-dress.png',
+      img: 'https://img.icons8.com/color/2x/green-dress.png',
     },
   ];
 
@@ -264,7 +264,7 @@ export default function App() {
         {/* <Demo /> */}
       </div>
 
-      <div>
+      <div className="padB50">
         <MyFlatList todos={obj} />
         <MyFlatListImage todos={objImage} mycaption="สินค้าลดราคา" />
       </div>
@@ -277,14 +277,17 @@ export default function App() {
           </ul> */}
         </div>
       </div>
-      {/* <Box1Col myimage={myimage} />
-      <Box1Col myimage={myimage2} />
-      <Box2Col myimage1={myimage} myimage2={myimage2} /> */}
-      {/* <BoxProduct todos={item2s} mycaption="สินค้าลดราคา" /> */}
-      <BoxImage apicode={apicode1} mycaption="สินค้า BoxImageData" />
-      {/* <ImageGallery items={images} /> */}
+      <div className="padB50">
+        <BoxImage apicode={apicode1} mycaption="สินค้า BoxImageData" />
+      </div>
 
       {/* <PersonList /> */}
+      <div className="mFooter flex">
+        <div className="box4">Home</div>      
+          <div className="box4"><Link to="../Cart">Cart </Link></div>        
+        <div className="box4">Me</div>
+        <div className="box4">WishList</div>
+      </div>
     </div>
   );
 }
