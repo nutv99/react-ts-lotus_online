@@ -10,7 +10,7 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import winStorage from '../service/winStorage';
 
-// import winStorage from '../service/winStorage';
+
 
 function Cart() {
   // Section 2 **************** Start Declare Var  ********
@@ -33,19 +33,18 @@ function Cart() {
     } finally {
       setLoading(false);
     }
+  }
 
     // ****************************  Start Declare UseEfect    *******************************
-    useEffect(() => {
-      getDataAPI();
-    }, [count]);
+    useEffect(() => { getDataAPI();}, [count]);
 
     //******************************* Start Rendor  ********************
     return (
       <div>
         My Cart
       </div>
-    );
-  };
+    )
 }
+
 
 export default Cart;
