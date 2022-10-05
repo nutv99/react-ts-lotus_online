@@ -28,7 +28,7 @@ root.render(
         />
         <Route path="/pageDetail/:productid" element={<PageProductDetail />} />
         <Route path="/Cart" element={ <CartList/>} />
-        <Route path="/Cart" element={ <Cart/>} />
+        <Route path="/Cart99" element={ <Cart/>} />
         {/* <Route path=":lang/invoices/:invoiceid" element={<Invoices />} /> */}
       </Routes>
       {/* <App /> */}

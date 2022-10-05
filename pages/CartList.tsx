@@ -2,21 +2,23 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as sIcon from '@fortawesome/free-solid-svg-icons';
-import './style.css';
+import '../style.css';
 import ApiService from '../Apiservice';
 import NewUtil from '../service/newutil';
 import { BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import  winStorage from '../service/winStorage';
+
   
-   
-function CartList() {
+function CartList() {   
  // Section 2 **************** Start Declare Var  ********
 const [item2s, setItem2s] = useState([]);
 const [loading, setLoading] = useState(false);
 const count = 0;
     
  //***********************   Start Declare Function  **********************   
+ 
 const getDataAPI = async () => {
 try {
      setLoading(true);
@@ -39,17 +41,14 @@ try {
   
  //******************************* Start Rendor  ********************  
 return (
-   <div>
-     <div className='header99'>
-       <ul>
+   <div> 
+      <ul>
           {item2s.map((user) => {
             return <li key={user.ItemName}>Name: {user.ItemName}</li>;
           })}
        </ul>
-     </div>
+     
    </div>
 )
-        
 }
-
-export default CartList;
+export default CartList
