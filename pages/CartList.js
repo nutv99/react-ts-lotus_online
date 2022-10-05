@@ -34,17 +34,17 @@ try {
    useEffect(() => {
       getDataAPI();
    },[count]);
-
-   
   
  //******************************* Start Rendor  ********************  
 return (
    <div>
-     <div className='bordergray flex'>
-      <div className=''>BoxL</div>
-      <div className='mlAuto'>BoxR</div>
-   </div>  
-     
+     <div className='header99'>
+       {/* <ul>
+          {item2s.map((user) => {
+            return <li key={user.ItemName}>Name: {user.ItemName}</li>;
+          })}
+       </ul> */}
+     </div>
    </div>
 )
 }

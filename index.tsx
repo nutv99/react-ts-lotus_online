@@ -12,6 +12,7 @@ import {
 import App from './App';
 import  PageProductDetail  from './pages/PageProductDetail';
 import Cart from './pages/Cart'
+import CartList from './pages/CartList'
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
@@ -26,6 +27,7 @@ root.render(
           element={<PageProductDetail />}
         />
         <Route path="/pageDetail/:productid" element={<PageProductDetail />} />
+        <Route path="/Cart" element={ <CartList/>} />
         <Route path="/Cart" element={ <Cart/>} />
         {/* <Route path=":lang/invoices/:invoiceid" element={<Invoices />} /> */}
       </Routes>

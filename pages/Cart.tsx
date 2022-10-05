@@ -36,19 +36,18 @@ function Cart() {
   // ****************************  Start Declare UseEfect    *******************************
   useEffect(() => {
     getDataAPI();
-  }, [count]);
+  }, [count]); 
+
+  
+
 
   //******************************* Start Rendor  ********************
   return (
     <div>
-      <div className="bordergray flex">
-        <div id="box1" className="bordergray flex">
-          BoxL
-        </div>
-        <div id="box12" className="mlAuto">
-          BoxR
-        </div>
-      </div>
+      <div className='bordergray flex'>
+      <div className=''>BoxL</div>
+      <div className='mlAuto'>BoxR</div>
+   </div>  
     </div>
   );
 }
