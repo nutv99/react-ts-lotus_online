@@ -20,7 +20,7 @@ const count = 0;
  //***********************   Start Declare Function  **********************   
 const getDataAPI = async () => { 
 
-//let numOrder = winStorage.getNumOrderOnLocal('guest',thisItemCode,0) ; 
+// let numOrder = winStorage.getNumOrderOnLocal('guest',thisItemCode,0) ; 
 try {
      setLoading(true);
       let endPoint = 'dataservice/clsItemMaster.php';
