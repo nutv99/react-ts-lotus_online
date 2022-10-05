@@ -375,3 +375,9 @@ div {
   padding-bottom: 50px;
   margin-bottom: 50px;
 }
+.borderGray {
+  border:1px solid lightgray ;
+}
+.fontBold {
+  font-weight: bold;
+}

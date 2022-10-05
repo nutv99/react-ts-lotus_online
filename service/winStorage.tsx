@@ -17,25 +17,27 @@ function setNewOrderOnLocal(
   itemcode: string,
   newOrder: number
 ) {
+  newOrder++;
+  memberid = 'guest';
   let storageData = JSON.parse(localStorage.getItem('shopData'));
   const filtered = storageData.filter((obj) => {
-    return obj.membercode === memberid;
+    return obj.customerid === memberid;
   });
-  const filteredA = filtered[0].orderlist.filter((obj) => {
-    return obj.itemCode === itemcode;
+
+  const filteredA = filtered[0].cartList.filter((obj) => {
+    return obj.ItemCode === itemcode;
   });
 
   if (filteredA && filteredA.length > 0) {
-    // Found
     console.log(
       ' Methood A1',
-      'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numOrder
+      'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numCart + '; '
     );
-
-    filteredA[0].numOrder = newOrder;
+   // console.log('Storage Data', JSON.stringify(storageData));
+    filteredA[0].numCart = newOrder;
     localStorage.setItem('shopData', JSON.stringify(storageData));
   } else {
-    console.log(' Methood A1', ' Not Found ' + memberid + '-' + itemcode);
+    console.log(' Method A1', ' Not Found ' + memberid + '-' + itemcode);
   }
 }
 
@@ -44,15 +46,23 @@ function getNumOrderOnLocal(
   itemcode: string,
   newOrder: number
 ) {
+  memberid = 'guest';
+
   let storageData = JSON.parse(localStorage.getItem('shopData'));
+
+  if (storageData.length == 0) {
+    return 0;
+  }
+
   const filtered = storageData.filter((obj) => {
     return obj.membercode === memberid;
   });
 
-  if (!filtered) {
+  if (!filtered || filtered.length == 0) {
     return -1;
   }
-  const filteredA = filtered[0].orderlist.filter((obj) => {
+  console.log('Filtered', filtered);
+  const filteredA = filtered[0].cartList.filter((obj) => {
     return obj.itemCode === itemcode;
   });
 
@@ -71,11 +81,10 @@ function getNumOrderOnLocal(
 }
 
 const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
-
   let HaveMember: boolean;
   let thisItemCode: string = productid;
-  var filtered = [{}] as any ;
-  var localDataName  = 'shopTest' ;
+  var filtered = [{}] as any;
+  var localDataName = 'shopTest';
 
   // console.log('ccc999=', productid);
   // console.log('ccc888=', productid.ItemData.ItemCode);
@@ -127,17 +136,14 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
       }
     }
 
-   
-   if (foundItem) {
-     storageData[0].cartList[ItemPosition].numCart = numorder;
-     localStorage.setItem(localDataName, JSON.stringify(storageData));
-   } else {
-     productid.ItemData.numCart = numorder;
-     storageData[0].cartList.push(productid.ItemData);     
-     localStorage.setItem(localDataName, JSON.stringify(storageData));
-   }
-
-   
+    if (foundItem) {
+      storageData[0].cartList[ItemPosition].numCart = numorder;
+      localStorage.setItem(localDataName, JSON.stringify(storageData));
+    } else {
+      productid.ItemData.numCart = numorder;
+      storageData[0].cartList.push(productid.ItemData);
+      localStorage.setItem(localDataName, JSON.stringify(storageData));
+    }
 
     // console.log('Search Item', thisItemCode, '=', filteredA);
     // if (filteredA && filteredA.length > 0) {
@@ -221,9 +227,18 @@ const PushToStorage999 = (memberid, productid, numorder, ItemData) => {
   // console.log('ccc=', cc);
 };
 
+function getOrderData() {
+  let order!: [{}];
+  let ordTmp = JSON.parse(localStorage.getItem('shopData'));
+  order = ordTmp[0].cartList;
+  console.log(order);
+  return order;
+}
+
 export default {
   checkDataExists,
   setNewOrderOnLocal,
   getNumOrderOnLocal,
   PushToStorage999,
+  getOrderData,
 };
