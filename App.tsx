@@ -284,8 +284,10 @@ export default function App() {
       {/* <PersonList /> */}
       <div className="mFooter flex">
         <div className="box4">Home</div>      
-          <div className="box4"><Link to="../Cart">Cart </Link></div>        
-        <div className="box4">Me</div>
+        <div className="box4"><Link to="../Cart">Cart </Link>
+        </div>        
+        <div className="box4">< Link to="/me" >Me </Link>
+        </div>
         <div className="box4">WishList</div>
       </div>
     </div>
