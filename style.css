@@ -376,11 +376,21 @@ div {
   margin-bottom: 50px;
 }
 .borderGray {
-  border:1px solid lightgray ;
+  border: 1px solid lightgray;
 }
 .fontBold {
   font-weight: bold;
 }
 .red {
-  color:red;
+  color: red;
+}
+.BoxItemName {
+  height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+}
+.topBarHeader {
+  height: 35px;
+  background-color: green;
+  color: white;
 }

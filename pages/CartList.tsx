@@ -10,6 +10,7 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import winStorage from '../service/winStorage';
 import TxtOrder from '../components/txtOrder';
+import * as sIcon from '@fortawesome/free-solid-svg-icons';
 
 function CartList() {
   // Section 2 **************** Start Declare Var  ********
@@ -99,6 +100,9 @@ function CartList() {
   return (
     <div>
       CartList:
+      <div className='topBarHeader'>
+
+      </div>
       <ul>
         {CartItemList &&
           CartItemList.map((item) => {
@@ -107,8 +111,8 @@ function CartList() {
               <div className="borderGray">
                 <div className="flex " style={{ height: 100, padding: 20 }}>
                   <img src={item.mainImageURL} alt="" style={{ width: 50 }} />
-                  <div style={{ marginLeft: 15 }}>
-                    <li key={item.ItemCode}>{item.ItemName}</li>
+                  <div className="BoxItemName" style={{ marginLeft: 15 }}>
+                    {item.ItemName}
                   </div>
                 </div>
 
