@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import winStorage from '../service/winStorage';
+import TxtOrder from '../components/txtOrder';
 
 function CartList() {
   // Section 2 **************** Start Declare Var  ********
@@ -113,16 +114,13 @@ function CartList() {
                   <div>{item.SellPrice}/ชิ้น</div>
                   <div className="mlAuto">
                     {/* {numTextOrder(item.ItemCode, item, item.SellPrice)} */}
-                    <div className="mlAuto">
-        <button className="btnSub">-</button>
-        <input type="text" className="txtnumOrder" value={item.numCart} />
-        <button
-          className="btnAdd"
-          onClick={() => addOrderOnCart(item.ItemCode, item.numCart++, item.SellPrice)}
-        >
-          +
-        </button>
-      </div>
+                    <div>
+                      <TxtOrder
+                        heartid={item.ItemCode}
+                        showInput="y"
+                        ItemData=""
+                      />
+                    </div>
                   </div>
                   <div className="mlAuto fontBold">
                     {NewUtil.THBath(item.SellPrice * item.numCart)}

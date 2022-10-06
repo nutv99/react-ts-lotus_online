@@ -33,7 +33,7 @@ function setNewOrderOnLocal(
       ' Methood A1',
       'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numCart + '; '
     );
-   // console.log('Storage Data', JSON.stringify(storageData));
+    // console.log('Storage Data', JSON.stringify(storageData));
     filteredA[0].numCart = newOrder;
     localStorage.setItem('shopData', JSON.stringify(storageData));
   } else {
@@ -55,25 +55,26 @@ function getNumOrderOnLocal(
   }
 
   const filtered = storageData.filter((obj) => {
-    return obj.membercode === memberid;
+    return obj.customerid === memberid;
   });
 
   if (!filtered || filtered.length == 0) {
+    console.log('Filred=', filtered.length);
     return -1;
   }
-  console.log('Filtered', filtered);
+  // console.log('Filtered', filtered);
   const filteredA = filtered[0].cartList.filter((obj) => {
-    return obj.itemCode === itemcode;
+    return obj.ItemCode === itemcode;
   });
 
   if (filteredA && filteredA.length > 0) {
     // Found
     console.log(
       ' Methood A1',
-      'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numOrder
+      'Found ' + memberid + '-' + itemcode + '=' + filteredA[0].numCart
     );
 
-    return filteredA[0].numOrder;
+    return filteredA[0].numCart;
   } else {
     console.log(' Methood A1', ' Not Found ' + memberid + '-' + itemcode);
     return null;
