@@ -180,6 +180,7 @@ export default function TxtOrder(
     //winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
     let NewAmount = winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
     setAmount(NewAmount);
+    
     return;
 
     // Filter 2 Level Method-1

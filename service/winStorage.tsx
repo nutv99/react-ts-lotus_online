@@ -26,6 +26,16 @@ function getTotalAmount(storageName, customerid) {
     console.log('Filred=', filtered.length);
     return -1;
   }
+
+  let Total = 0;
+  //alert(filtered[0].cartList.length);
+  for (let i = 0; i <= filtered[0].cartList.length - 1; i++) {
+    Total = Total + filtered[0].cartList[i].Amount;
+  }
+  //alert(Total);
+  return Total;
+
+  //console.log('GetTotalAmount', filtered);
 }
 
 function setNewOrderOnLocal(
@@ -262,4 +272,5 @@ export default {
   getNumOrderOnLocal,
   PushToStorage999,
   getOrderData,
+  getTotalAmount,
 };

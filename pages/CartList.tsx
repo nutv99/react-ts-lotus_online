@@ -38,6 +38,11 @@ function CartList() {
         tmp.push(cartData[i].numCart);
       }
 
+      let storageName = 'shopData';
+      let customerid = 'guest';
+      let TotalMoney = winStorage.getTotalAmount(storageName, customerid);
+      setgrandTotal(TotalMoney);
+
       setCart2(tmp);
       console.log('Cart2', tmp);
 
@@ -74,7 +79,10 @@ function CartList() {
         CartItemList[i].numCart = newOrder;
         alert('Found = ' + CartItemList[i].numCart);
       }
-    }
+    } 
+
+    let TotalMoney = winStorage.getTotalAmount('shopData', 'guest');
+    
     return;
   }
 
