@@ -12,6 +12,7 @@ export default function TxtOrder(
   heartid: string,
   showInput: string,
   ItemData: any,
+  SellPrice: number,
   Amount: number
 ) {
   const [isHeartActive, setIsHeartActive] = useState(false);
@@ -23,8 +24,6 @@ export default function TxtOrder(
   const [amount, setAmount] = useState(Amount);
 
   const [heartID, setHeartID] = useState(heartid);
-
-  
 
   //console.log('showInput999 ' ,showInput);
   //console.log('showInput999 ', heartid.showInput);
@@ -135,7 +134,7 @@ export default function TxtOrder(
     let memberid = 'guest';
     let itemcode = heartid.heartid;
     let NewAmount = winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
-    setAmount(NewAmount) ;
+    setAmount(NewAmount);
 
     return;
     if (winStorage.checkDataExists('shopData', '', '')) {
@@ -180,7 +179,7 @@ export default function TxtOrder(
     let itemcode = heartid.heartid;
     //winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
     let NewAmount = winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
-    setAmount(NewAmount) ;
+    setAmount(NewAmount);
     return;
 
     // Filter 2 Level Method-1
@@ -253,10 +252,18 @@ export default function TxtOrder(
 
   return (
     <div>
-      <div className="flex fullWidth">
+      {/* <div className="flex fullWidth">
         {heartid.heartid}
         {showInputText == 'y' ? numInput() : ''}
         :: {amount} บาท
+      </div> */}
+
+      <div className="flex">
+        <div>{NewUtil.THBath(heartid.SellPrice)}/ ชิ้น</div>
+        <div className="mlAuto">{showInputText == 'y' ? numInput() : ''}</div>
+        <div className="mlAuto mr10 fontBold red">
+          :: {NewUtil.THBath(amount)} บาท
+        </div>
       </div>
       {/* {showInputText == 'y' ? btnAddBasket() : ''} */}
     </div>

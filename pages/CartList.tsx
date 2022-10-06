@@ -111,32 +111,15 @@ function CartList() {
                     <li key={item.ItemCode}>{item.ItemName}</li>
                   </div>
                 </div>
-                <div className="flex">
-                  <div>{item.SellPrice}/ชิ้น</div>
-                  <div className="mlAuto">
-                    {/* {numTextOrder(item.ItemCode, item, item.SellPrice)} */}
-                    <div>
-                      <TxtOrder
-                        heartid={item.ItemCode}
-                        showInput="y"
-                        ItemData=""
-                        Amount={item.Amount}
-                      />
-                    </div>
-                  </div>
-                  <div className="mlAuto fontBold">
-                    {NewUtil.THBath(item.Amount)}
-                  </div>
-                </div>
+
                 <div>
-                  {count}
-                  <button
-                    onClick={() => {
-                      AddCount(55);
-                    }}
-                  >
-                    +
-                  </button>
+                  <TxtOrder
+                    heartid={item.ItemCode}
+                    showInput="y"
+                    ItemData=""
+                    SellPrice={item.SellPrice}
+                    Amount={item.Amount}
+                  />
                 </div>
               </div>
             );
