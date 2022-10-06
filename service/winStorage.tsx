@@ -12,6 +12,22 @@ function checkDataExists(storageName: string, keyName: string, keyValue: any) {
   }
 }
 
+function getTotalAmount(storageName, customerid) {
+  let storageData = JSON.parse(localStorage.getItem(storageName));
+  if (!storageData) {
+    return false;
+  }
+
+  const filtered = storageData.filter((obj) => {
+    return obj.customerid === customerid;
+  });
+
+  if (!filtered || filtered.length == 0) {
+    console.log('Filred=', filtered.length);
+    return -1;
+  }
+}
+
 function setNewOrderOnLocal(
   memberid: string,
   itemcode: string,
