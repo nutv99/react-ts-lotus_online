@@ -143,6 +143,10 @@ function CartList() {
             );
           })}
       </ul>
+
+      <div className='flex mFooter'>
+         <Link to= "/CheckOut"> Check Out </Link>
+      </div>
     </div>
   );
 }

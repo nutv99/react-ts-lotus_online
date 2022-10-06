@@ -6,6 +6,9 @@
 #root {
   padding: 0 !important;
 }
+.pcontainer {
+  width: calc(100% - 10px) ;
+}
 h1,
 p {
   font-family: Lato;
@@ -23,6 +26,7 @@ p {
 .flex {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .topbar {
   color: white;
