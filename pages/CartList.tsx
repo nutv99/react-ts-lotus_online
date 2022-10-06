@@ -21,6 +21,7 @@ function CartList() {
   const [Cart2, setCart2] = useState([]);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(10);
+  const [grandTotal, setgrandTotal] = useState(0);
 
   //***********************   Start Declare Function  **********************
 
@@ -99,9 +100,14 @@ function CartList() {
   //******************************* Start Rendor  ********************
   return (
     <div>
-      CartList:
-      <div className='topBarHeader'>
-
+      <div className="topBarHeader flex">
+        <div>
+          <FontAwesomeIcon icon={sIcon.faLeftLong} />
+        </div>
+        <div className="mlAuto mr10">ยอดรวม : {NewUtil.THBath(grandTotal)}</div>
+        <div className="mlAuto mr10">
+          <FontAwesomeIcon icon={sIcon.faCartShopping} />
+        </div>
       </div>
       <ul>
         {CartItemList &&
