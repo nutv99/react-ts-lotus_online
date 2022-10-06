@@ -18,6 +18,7 @@ function setNewOrderOnLocal(
   newOrder: number
 ) {
   //newOrder++;
+  let NewAmount = -1;
   memberid = 'guest';
   let storageData = JSON.parse(localStorage.getItem('shopData'));
   const filtered = storageData.filter((obj) => {
@@ -35,12 +36,13 @@ function setNewOrderOnLocal(
     );
     // console.log('Storage Data', JSON.stringify(storageData));
     filteredA[0].numCart = newOrder;
-    let NewAmount = newOrder * filteredA[0].SellPrice ;
-    filteredA[0].Amount  = NewAmount ;
+    NewAmount = newOrder * filteredA[0].SellPrice;
+    filteredA[0].Amount = NewAmount;
     localStorage.setItem('shopData', JSON.stringify(storageData));
   } else {
     console.log(' Method A1', ' Not Found ' + memberid + '-' + itemcode);
   }
+  return NewAmount;
 }
 
 function getNumOrderOnLocal(

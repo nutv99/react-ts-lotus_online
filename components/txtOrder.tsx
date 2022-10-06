@@ -11,7 +11,8 @@ import '../style.css';
 export default function TxtOrder(
   heartid: string,
   showInput: string,
-  ItemData: any
+  ItemData: any,
+  Amount: number
 ) {
   const [isHeartActive, setIsHeartActive] = useState(false);
   const [isBagActive, setIsBagActive] = useState(false);
@@ -19,8 +20,11 @@ export default function TxtOrder(
   const [showInputText, setshowInputText] = useState(heartid.showInput);
 
   const [numOrder, setnumOrder] = useState(1);
+  const [amount, setAmount] = useState(Amount);
 
   const [heartID, setHeartID] = useState(heartid);
+
+  
 
   //console.log('showInput999 ' ,showInput);
   //console.log('showInput999 ', heartid.showInput);
@@ -130,7 +134,8 @@ export default function TxtOrder(
 
     let memberid = 'guest';
     let itemcode = heartid.heartid;
-    winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
+    let NewAmount = winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
+    setAmount(NewAmount) ;
 
     return;
     if (winStorage.checkDataExists('shopData', '', '')) {
@@ -173,7 +178,9 @@ export default function TxtOrder(
     numOrder > -1 ? setnumOrder(newOrder) : newOrder;
     let memberid = 'guest';
     let itemcode = heartid.heartid;
-    winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
+    //winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
+    let NewAmount = winStorage.setNewOrderOnLocal(memberid, itemcode, newOrder);
+    setAmount(NewAmount) ;
     return;
 
     // Filter 2 Level Method-1
@@ -248,8 +255,8 @@ export default function TxtOrder(
     <div>
       <div className="flex fullWidth">
         {heartid.heartid}
-
         {showInputText == 'y' ? numInput() : ''}
+        :: {amount} บาท
       </div>
       {/* {showInputText == 'y' ? btnAddBasket() : ''} */}
     </div>

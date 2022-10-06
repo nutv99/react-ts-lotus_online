@@ -102,6 +102,7 @@ function CartList() {
       <ul>
         {CartItemList &&
           CartItemList.map((item) => {
+            //alert(item.Amount);
             return (
               <div className="borderGray">
                 <div className="flex " style={{ height: 100, padding: 20 }}>
@@ -119,11 +120,12 @@ function CartList() {
                         heartid={item.ItemCode}
                         showInput="y"
                         ItemData=""
+                        Amount={item.Amount}
                       />
                     </div>
                   </div>
                   <div className="mlAuto fontBold">
-                    {NewUtil.THBath(item.SellPrice * item.numCart)}
+                    {NewUtil.THBath(item.Amount)}
                   </div>
                 </div>
                 <div>
