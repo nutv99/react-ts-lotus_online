@@ -10,7 +10,8 @@ import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import winStorage from '../service/winStorage';
 import TxtOrder from '../components/txtOrder';
-import * as sIcon from '@fortawesome/free-solid-svg-icons';
+import * as sIcon from '@fortawesome/free-solid-svg-icons'; 
+import  {useCounterStore}  from "../service/store" ;
 
 function CartList() {
   // Section 2 **************** Start Declare Var  ********
@@ -20,8 +21,10 @@ function CartList() {
 
   const [Cart2, setCart2] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [count, setCount] = useState(10);
+  //const [count, setCount] = useState(10);
   const [grandTotal, setgrandTotal] = useState(0);
+
+  const { count, increment, decrement } = useCounterStore()
 
   //***********************   Start Declare Function  **********************
 
@@ -102,12 +105,20 @@ function CartList() {
   };
 
   function AddCount(num) {
-    setCount(num);
+    // setCount(num);
   }
 
   //******************************* Start Rendor  ********************
   return (
-    <div>
+    <div> 
+
+    <section>
+      <h3>Counter</h3>
+      <p>count : {count}</p>
+      <button onClick={increment}>เพิ่ม</button>
+      <button onClick={decrement}>ลบ</button>
+    </section>
+
       <div className="topBarHeader flex">
         <div>
           <FontAwesomeIcon icon={sIcon.faLeftLong} />
