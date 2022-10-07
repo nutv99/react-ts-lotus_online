@@ -9,12 +9,15 @@ import {
   BrowserRouter,
 } from 'react-router-dom';
 
+// import enTranslations from '@shopify/polaris/locales/en.json';
+import { AppProvider, Page, Card, Button } from '@shopify/polaris';
+
 import App from './App';
 import PageProductDetail from './pages/PageProductDetail';
 import Cart from './pages/Cart';
 import CartList from './pages/CartList';
 import CheckOut from './pages/Checkout';
-import App999 from './pages/testZustand'
+import App999 from './pages/testZustand';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
@@ -32,7 +35,7 @@ root.render(
         <Route path="/Cart" element={<CartList />} />
         <Route path="/Cart99" element={<Cart />} />
         <Route path="/Checkout" element={<CheckOut />} />
-        <Route path="/me" element={ <App999/>} />
+        <Route path="/me" element={<App999 />} />
         {/* <Route path=":lang/invoices/:invoiceid" element={<Invoices />} /> */}
       </Routes>
       {/* <App /> */}

@@ -8,6 +8,8 @@ import NewUtil from '../service/newutil';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@shopify/polaris/build/esm/styles.css';
+import { AppProvider, Page, Card, Button } from '@shopify/polaris';
 
 function CheckOut() {
   // Section 2 **************** Start Declare Var  ********
@@ -49,6 +51,7 @@ function CheckOut() {
         </div>
       </div>
       <div className="pcontainer">
+        <button className="Polaris-Button">Example button</button>
         <div>
           <h3>สรุปการชำระเงิน</h3>
         </div>
