@@ -21,7 +21,7 @@ function CartList() {
 
   const [Cart2, setCart2] = useState([]);
   const [loading, setLoading] = useState(false);
-  //const [count, setCount] = useState(10);
+  const [count, setCount] = useState(10);
   const [grandTotal, setgrandTotal] = useState(0);
 
   // const { count, increment, decrement } = useCounterStore()
