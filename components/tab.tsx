@@ -54,7 +54,7 @@ export default function BasicTabs() {
         >
           <Tab label="รายละเอียด" {...a11yProps(0)} />
           <Tab label="วิธีใช้" {...a11yProps(1)} />
-          <Tab label="รีวิวสินค้า" {...a11yProps(2)} />
+          <Tab label="รีวิวสินค้า.." {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
