@@ -10,10 +10,10 @@ import {
 } from 'react-router-dom';
 
 import App from './App';
-import  PageProductDetail  from './pages/PageProductDetail';
-import Cart from './pages/Cart'
-import CartList from './pages/CartList'
-import CheckOut from './pages/Checkout'
+import PageProductDetail from './pages/PageProductDetail';
+import Cart from './pages/Cart';
+import CartList from './pages/CartList';
+import CheckOut from './pages/Checkout';
 import App999 from './pages/testZustand'
 
 const rootElement = document.getElementById('root');
@@ -29,9 +29,9 @@ root.render(
           element={<PageProductDetail />}
         />
         <Route path="/pageDetail/:productid" element={<PageProductDetail />} />
-        <Route path="/Cart" element={ <CartList/>} />
-        <Route path="/Cart99" element={ <Cart/>} />
-        <Route path="/Checkout" element={ <CheckOut/>} />
+        <Route path="/Cart" element={<CartList />} />
+        <Route path="/Cart99" element={<Cart />} />
+        <Route path="/Checkout" element={<CheckOut />} />
         <Route path="/me" element={ <App999/>} />
         {/* <Route path=":lang/invoices/:invoiceid" element={<Invoices />} /> */}
       </Routes>
