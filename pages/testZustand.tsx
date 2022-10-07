@@ -10,7 +10,6 @@ type State = {
   setLastName: (lastName: string) => void;
 };
 
-
 // type State = {
 //   firstName: string;
 //   lastName: string;
@@ -72,10 +71,10 @@ function App999() {
 
   //const firstName = useStore.useStore((state) => state.firstName);
 
-  const firstName = useStore((state) => state.firstName);
-  const lastName = useStore((state) => state.lastName);
-  const setFirstName = useStore((state) => state.setFirstName);
-  const setLastName = useStore((state) => state.setLastName);
+  // const firstName = useStore((state) => state.firstName);
+  // const lastName = useStore((state) => state.lastName);
+  // const setFirstName = useStore((state) => state.setFirstName);
+  // const setLastName = useStore((state) => state.setLastName);
   return (
     <div>
       aaaaa
