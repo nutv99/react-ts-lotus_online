@@ -3,6 +3,14 @@ import { useState } from 'react';
 import create from 'zustand';
 import useStore from '../service/store';
 
+type State = {
+  firstName: string;
+  lastName: string;
+  setFirstName: (firstName: string) => void;
+  setLastName: (lastName: string) => void;
+};
+
+
 // type State = {
 //   firstName: string;
 //   lastName: string;
@@ -62,7 +70,12 @@ import useStore from '../service/store';
 function App999() {
   // const firstName = useStore.useStore((state) => state.firstName);
 
-  //const firstName = useStore((state) => state.firstName);
+  //const firstName = useStore.useStore((state) => state.firstName);
+
+  const firstName = useStore((state) => state.firstName);
+  const lastName = useStore((state) => state.lastName);
+  const setFirstName = useStore((state) => state.setFirstName);
+  const setLastName = useStore((state) => state.setLastName);
   return (
     <div>
       aaaaa
