@@ -8,8 +8,8 @@ import NewUtil from '../service/newutil';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '@shopify/polaris/build/esm/styles.css';
-import { AppProvider, Page, Card, Button } from '@shopify/polaris';
+// import '@shopify/polaris/build/esm/styles.css';
+// import { AppProvider, Page, Card, Button } from '@shopify/polaris';
 
 function CheckOut() {
   // Section 2 **************** Start Declare Var  ********
@@ -41,6 +41,7 @@ function CheckOut() {
   //******************************* Start Rendor  ********************
   return (
     <div>
+       
       <div className="topBarHeader flex">
         <div>
           <FontAwesomeIcon icon={sIcon.faLeftLong} />
@@ -105,6 +106,7 @@ function CheckOut() {
         <div>ชำระเงิน เก็บเงินปลายทาง </div>
       </div>
       <div>ยืนยันการสั่งซื้อ</div>
+
     </div>
   );
 }

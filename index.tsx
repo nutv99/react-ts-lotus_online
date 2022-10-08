@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 // import enTranslations from '@shopify/polaris/locales/en.json';
-import { AppProvider, Page, Card, Button } from '@shopify/polaris';
+// import { AppProvider, Page, Card, Button } from '@shopify/polaris';
 
 import App from './App';
 import PageProductDetail from './pages/PageProductDetail';
